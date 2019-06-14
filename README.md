@@ -1,5 +1,5 @@
-# 100daysofcodev2
-## 100 dias de código em Python – Domine a linguagem python através desse desafio.
+# 100 dias de código em Python – Domine a linguagem python através desse desafio.
+## Planejamento
 ### 1. Nome do projeto
 Desafio dos 100 dias de código
 ### 2. Facilitador
@@ -34,8 +34,11 @@ Parte I – Curso Intensivo de Python
 14.	Expressão regulares
 15.	Introdução a parsing
 16.	Introdução a interface gráfica.
+
 Parte II – Algoritmos e estrutura de dados em python
+
 Parte III – Desenvolvimento web com Django
+
 ### 10. Metodologia
 A metodologia proposta compreende teoria e prática, sendo que a teoria será apresentada 3 vezes na semana, segunda, quarta e sexta, e a prática através de exercícios de revisão e desafios de programação utilizando o jupyter notebook. Dependendo do desempenho da turma, pode ser proposta o desenvolvimento de uma aplicação real em conjunto com os alunos, trabalhando em equipe.
 ### 11. Recursos
