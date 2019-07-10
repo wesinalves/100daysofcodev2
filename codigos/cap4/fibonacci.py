@@ -1,7 +1,7 @@
 def fibonacci(number):
 
     if number < 0:
-        print('Valor negativo é invalido')
+        print('Valor negativo é inválido')
     
     if number == 0 or number == 1:
         return 1
