@@ -6,3 +6,5 @@ telefones['joao']
 telefones['pedro'] = '9999-6767'
 
 del telefones['maria']
+
+print(telefones)
