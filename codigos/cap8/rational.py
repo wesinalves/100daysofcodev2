@@ -45,6 +45,9 @@ class Rational:
         Returns the sum of this rational number object with
         the other rational object.
         """
+        if type(other) == type(1):
+            other = Rational( other )
+            
         return Rational(self.sign * self.numerator * other.denominator +
                         other.sign * other.numerator * self.denominator,
                         self.denominator * other.denominator)
@@ -136,7 +139,7 @@ class Rational:
 
         return self.sign * float(self.numerator) / self.denominator
     
-    def __coerce__( self, other ):
+    def coerce( self, other ):
         """Overloaded coercion. Can only coerce int to Rational"""
 
         if type(other) == type(1):
