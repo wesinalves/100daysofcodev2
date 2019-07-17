@@ -1,3 +1,5 @@
+# Cap 8 - Overload operators example
+# Definition of class Rational.
 def gcd( x, y ):
     """Computes greatest common divisor of two values"""
     while y:
@@ -119,15 +121,15 @@ class Rational:
         if self.numerator == 0:
             return "0"
         elif self.denominator == 1:
-            return "{}{:.d}".format( signString, self.numerator )
+            return "{}{}".format( signString, self.numerator )
         else:
-            return "{}{:.d}/{:.d}".format( signString, self.numerator, self.denominator )
+            return "{}{}/{}".format( signString, self.numerator, self.denominator )
 
     # overloaded coercion capability
-    def __int__( self ):
+    def __int__(self):
         """Overloaded integer representation"""
 
-        return self.sign * divmod( self.numerator, self.denominator )[0]
+        return int(self.sign * divmod(self.numerator, self.denominator)[0])
     
     def __float__( self ):
         """Overloaded floating-point representation"""
