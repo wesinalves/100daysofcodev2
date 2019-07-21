@@ -19,4 +19,6 @@ class Guitar:
             print("Guitar is not tuned!")
         else:
             print(self._strings)
-
+    
+    def equalize(self):
+        pass
