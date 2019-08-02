@@ -23,7 +23,8 @@ class MenuBarDemo( Frame ):
 
         # create File menu and items
         self.choices.addmenu( "File", "Exit" )
-        self.choices.addmenuitem( "File", "command", command = self.closeDemo, label = "Exit" )
+        self.choices.addmenuitem( "File", "command", 
+            command = self.closeDemo, label = "Exit" )
 
         # create Format menu and items
         self.choices.addmenu( "Format", "Change font/color" )

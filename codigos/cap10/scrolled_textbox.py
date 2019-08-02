@@ -16,7 +16,8 @@ class CopyTextWindow(Frame):
         self.master.title("ScrolledText Demo")
 
         # create scrolled text box with word wrap enabled
-        self.text1 = Pmw.ScrolledText(self, text_width = 25, text_height = 12, text_wrap = WORD,
+        self.text1 = Pmw.ScrolledText(self, text_width = 25, text_height = 12, 
+                        text_wrap = WORD,
                         hscrollmode = "static", vscrollmode = "static")
         self.text1.pack(side = LEFT, expand = YES, fill = BOTH, padx = 5, pady = 5)
 
