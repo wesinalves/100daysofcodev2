@@ -1,4 +1,4 @@
-# Python Journey - Chapter 11
+# Python Journey - Chapter 12
 # Manipulating string.
 
 string1 = "Tudo posso naquele que me fortalece!"
