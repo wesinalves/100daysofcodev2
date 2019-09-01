@@ -20,3 +20,5 @@ while 1:
         break
     else:
         print(account_line, file = file)
+
+file.close()
