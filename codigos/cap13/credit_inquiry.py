@@ -4,8 +4,6 @@
 import sys
 
 def get_request():
-    
-    request = None
 
     while 1:
         request = int(input("\n? "))
@@ -73,3 +71,5 @@ while 1:
 
 print("\n End of run")
 file.close()
+
+print("\n End of run")
