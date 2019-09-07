@@ -50,7 +50,7 @@ class InstagramBot:
         # gathering photos
         pic_hrefs = []
 
-        for i in range(1, 5):
+        for i in range(1, 2):
             try:
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(2)
@@ -61,7 +61,7 @@ class InstagramBot:
                                  if '.com/p/' in elem.get_attribute('href')]
                 # building list of unique photos
                 [pic_hrefs.append(href) for href in hrefs_in_view if href not in pic_hrefs]
-                # print("Check: pic href length " + str(len(pic_hrefs)))
+                print("Check: pic href length " + str(len(pic_hrefs)))
             except Exception:
                 continue
         
@@ -75,15 +75,15 @@ class InstagramBot:
 
             try:
                 time.sleep(random.randint(2,4))
-                like_button = lambda: driver.find_element_by_xpath('//span[@aria-label="Like"]').click()
-                like_button.click()
+                driver.find_element_by_xpath('//button[@class="dCJp8 afkep _0mzm-"]').click()
 
-                for second in reversed(range(0, random.randint(18, 28))):
+                for second in reversed(range(0, 5)):
                     print_same_line("#" + hashtag + ': unique photos left: ' + str(unique_photos)
                                     + " | Sleeping " + str(second))
                     
                     time.sleep(1)
             except Exception as e:
+                print(e, 'it doesn\'t like!')
                 time.sleep(2)
             
             unique_photos -= 1
@@ -99,8 +99,10 @@ if __name__ == "__main__":
     ig = InstagramBot(user_name, password)
     ig.login()
 
-    hashtags = ['mathematics']
+    hashtags = 'coder'
+    ig.like_photo(hashtags)
     
+    '''
     while True:
         try:
             # Choose a random tag from the list of tags
@@ -111,3 +113,4 @@ if __name__ == "__main__":
             time.sleep(60)
             ig = InstagramBot(user_name, password)
             ig.login()
+    '''
