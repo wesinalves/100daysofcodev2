@@ -76,7 +76,7 @@ def update_record(update_file):
 # create and insert new record
 def new_record(insert_infile):
 
-    account = get_account("Enter account to update")
+    account = get_account("Enter new account number")
 
     if not insert_infile.has_key(account):
         print("Enter lastname, firstname, balance")
@@ -84,5 +84,53 @@ def new_record(insert_infile):
         insert_infile[account] = current_data.split()
     else:
         print("Account", account, "already exists", file = sys.stderr)
+    
+# delete existing record
+def delete_record(delete_fromfile):
 
+    account = get_account("Enter account to delete")
+
+    if delete_fromfile.has_key(account):
+        del delete_fromfile[account]
+        print("Account #", account, "deleted")
+    else:
+        print("Account", account, "doesn't exist", file = sys.stderr)
+
+# output line of client information
+def output_line(account, record):
+    
+    print(account.ljust(10))
+    print(record[0].ljust(10))
+    print(record[1].ljust(10))
+    print(record[2].rjust(10))
+
+def get_account(prompt):
+
+    while 1:
+        account = input(prompt + " (1 - 100): ")
+
+        if 1 <= int(account) <= 100:
+            break
+    
+    return account
+
+options = [text_file, update_record, new_record, delete_record]
+
+try:
+    credit_file = shelve.open("credit.dat")
+except IOError:
+    print("File could not be opened", file = sys.stderr)
+    sys.exit(1)
+
+# process user commands
+while 1:
+
+    choice = enter_choice() # get user menu choice
+
+    if choice == 5:
+        break
+    
+    options[choice - 1](credit_file) # invoke option function
+
+credit_file.close()
 
