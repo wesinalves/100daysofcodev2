@@ -1,4 +1,4 @@
-# Python Journey - Chapter 23
+# Python Journey - Chapter 22
 # Instagram bot for automating
 
 from selenium import webdriver
