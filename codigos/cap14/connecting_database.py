@@ -1,3 +1,4 @@
+#!C:\Users\wesin\Anaconda2019
 # Python Journey - Chapter 14
 # Connecting postgre database
 # Displays contents of the Actor table,
