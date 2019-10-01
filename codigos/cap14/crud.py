@@ -27,8 +27,8 @@ class Film(Frame):
 
         # list of fields in an address record
         fields = ["film_id", "title", "description", "release_year", 
-                    "lenguage_id", "rental_duration", "rental_rate", "length",
-                    "replacement_cost", "rating", "last_updated", "special_features", "full_text"]
+                    "language_id", "rental_duration", "rental_rate", "length",
+                    "replacement_cost", "rating", "last_update", "special_features", "fulltext"]
         
         # dictionary with Entry components for values, keyed by
         # corresponding addresses table field names
@@ -41,7 +41,7 @@ class Film(Frame):
             label = Label(self, text = fields[i] + ":")
             label.grid(row = i + 1, column = 0)
             entry = Entry(self, name = fields[i].lower(), font = "Courier  12")
-            entry.grid(row = 1, column = 1, sticky = W+E+N+S, padx = 5)
+            entry.grid(row = i + 1, column = 1, sticky = W+E+N+S, padx = 5)
         
             # user cannot type in ID field
             if fields[i] == "film_id":
@@ -49,31 +49,32 @@ class Film(Frame):
             
             # add entry field to dictionary
             key = fields[i].replace(" ", " ")
-            key = key.upper()
+            #key = key.upper()
             self.entries[key] = entry
         
+                
     def add_film(self):
         """Add film record to database"""
 
         if self.entries["title"].get() != " " and self.entries["description"].get() != " ":
             # create INSERT query command
             query = """INSERT INTO film (title, description, release_year, 
-                    lenguage_id, rental_duration, rental_rate, length,
-                    replacement_cost, rating, last_updated, special_features, full_text)
+                    language_id, rental_duration, rental_rate, length,
+                    replacement_cost, rating, last_update, special_features, fulltext)
                     VALUES (""" + "'%s', " * 12 % \
                     (
                         self.entries["title"].get(),
                         self.entries["description"].get(),
                         self.entries["release_year"].get(),
-                        self.entries["lenguage_id"].get(),
+                        self.entries["language_id"].get(),
                         self.entries["rental_duration"].get(),
                         self.entries["rental_rate"].get(),
                         self.entries["length"].get(),
                         self.entries["replacement_cost"].get(),
                         self.entries["rating"].get(),
-                        self.entries["last_updated"].get(),
+                        self.entries["last_update"].get(),
                         self.entries["especial_features"].get(),
-                        self.entries["full_text"].get()
+                        self.entries["fulltext"].get()
                     )
             query = query[:-2] + ")" 
 
@@ -121,7 +122,7 @@ class Film(Frame):
 
                     #display results
                     for i in range(len(fields)):
-                        if fields[i][0] == 'film_id':
+                        if fields[i][0] == "film_id":
                             self.IDEntry.set(str(results[0][i]))
                         else:
                             self.entries[fields[i][0]].insert(INSERT, str(results[0][i]))
@@ -172,7 +173,7 @@ class Film(Frame):
     def clear_contents(self):
         """Clear GUI panel"""
 
-        for entry in self.entries.values:
+        for entry in self.entries.values():
             entry.delete(0,END)
         
         self.IDEntry.set(" ")
