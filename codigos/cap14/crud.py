@@ -10,6 +10,7 @@ class Film(Frame):
     """GUI Database Address Book Frame"""
 
     def __init__(self):
+
         Frame.__init__(self)
         Pmw.initialise()
         self.pack(expand = YES, fill = BOTH)
@@ -20,7 +21,7 @@ class Film(Frame):
         self.buttons.add("Find", command = self.find_film)
         self.buttons.add("Add", command = self.add_film)
         self.buttons.add("Update", command = self.update_film)
-        self.buttons.add("Clear", command = self.clear_content)
+        self.buttons.add("Clear", command = self.clear_contents)
         self.buttons.add("Help", command = self.help, width = 14)
         self.buttons.alignbuttons()
 
@@ -59,7 +60,7 @@ class Film(Frame):
             query = """INSERT INTO film (title, description, release_year, 
                     lenguage_id, rental_duration, rental_rate, length,
                     replacement_cost, rating, last_updated, special_features, full_text)
-                    VALUES (""" + "'%s', " * 10 % \
+                    VALUES (""" + "'%s', " * 12 % \
                     (
                         self.entries["title"].get(),
                         self.entries["description"].get(),
@@ -88,4 +89,110 @@ class Film(Frame):
                 cursor.close()
                 conn.close()
                 self.clear_contents()
+        else:
+            showwarning("Missing fields", "Please enter name")
+        
+    def find_film(self):
+        """Query database for address record and display results"""
+
+        if self.entries["title"].get() != " ":
+            # create SELECT query
+            query = "SELECT * FROM film " + \
+                    "WHERE title = '" + \
+                    self.entries["title"].get() + "'"
+            
+            # open connection, retrieve cursor and execute query
+            try:
+                conn = psycopg2.connect("dbname=dvdrental user=postgres password=root")
+                cursor = conn.cursor()
+                cursor.execute(query)
+            except psycopg2.OperationalError as error:
+                error_message = "Error %d: \n%s" % (error[0], error[1])
+                showerror("Error", error_message)
+                self.clear_contents()
+            else:
+                results = cursor.fetchall()
+                fields = cursor.description
+
+                if not results:
+                    showinfo("not found", "nonexisting records")
+                else:
+                    self.clear_contents()
+
+                    #display results
+                    for i in range(len(fields)):
+                        if fields[i][0] == 'film_id':
+                            self.IDEntry.set(str(results[0][i]))
+                        else:
+                            self.entries[fields[i][0]].insert(INSERT, str(results[0][i]))
+                
+                cursor.close()
+                conn.close()
+        
+        else:
+            showwarning( "Missing fields", "Please enter last name" )
+    
+    def update_film(self):
+        """Update address record in database"""
+
+        if self.entries["film_id"].get():
+
+            # create UPDATE query command
+            entry_items = self.entries.items()
+            query = "UPDATE film SET"
+
+            for key, value in entry_items:
+
+                if key != "film_id":
+                    query += " %s='%s'," % (key, value.get())
+                else:
+                    query = query[:-1] + "WHERE film_id = " + self.IDEntry.get()
+            
+
+            # open connection, retrieve cursor and execute query
+            try:
+                conn = psycopg2.connect("dbname=dvdrental user=postgres password=root")
+                cursor = conn.cursor()
+                cursor.execute(query)
+            except psycopg2.OperationalError as error:
+                error_message = "Error %d: \n%s" % (error[0], error[1])
+                showerror("Error", error_message)
+                self.clear_contents()
+            else:
+                showinfo( "database updated", "Database Updated." )
+                cursor.close()
+                conn.close()
+            
+        else:
+            showwarning("No ID specified", """
+                You may only update an existing record.
+                Use Find to locate the record,
+                then modify the information and press Update.""")
+    
+    def clear_contents(self):
+        """Clear GUI panel"""
+
+        for entry in self.entries.values:
+            entry.delete(0,END)
+        
+        self.IDEntry.set(" ")
+    
+    def help(self):
+        "Display help message to user"
+
+        showinfo("Help", """Click Find to locate a record.
+            Click Add to insert a new record.
+            Click Update to update the information in a record.
+            Click Clear to empty the Entry fields.\n""")
+
+def main():
+    Film().mainloop()
+
+if __name__ == "__main__":
+    main()
+
+
+
+            
+                
             
