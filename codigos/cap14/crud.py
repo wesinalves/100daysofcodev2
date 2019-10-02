@@ -146,8 +146,8 @@ class Film(Frame):
 
                 if key != "film_id":
                     query += " %s='%s'," % (key, value.get())
-                else:
-                    query = query[:-1] + "WHERE film_id = " + self.IDEntry.get()
+                
+            query = query[:-1] + " WHERE film_id =" + self.IDEntry.get()
             
 
             # open connection, retrieve cursor and execute query
