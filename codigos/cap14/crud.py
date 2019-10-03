@@ -145,7 +145,9 @@ class Film(Frame):
             for key, value in entry_items:
 
                 if key != "film_id":
-                    query += " %s='%s'," % (key, value.get())
+                    print(" %s='%s'," % (key, value.get().replace("'","\'")))
+                    query += " %s='%s'," % (key, value.get().replace("'","\'"))
+
                 
             query = query[:-1] + " WHERE film_id =" + self.IDEntry.get()
             
