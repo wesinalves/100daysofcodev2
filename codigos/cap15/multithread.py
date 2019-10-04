@@ -1,4 +1,4 @@
-# Python Journey - Chapter 14
+# Python Journey - Chapter 15
 # Show multiple threads printing at different intervals
 
 import threading
