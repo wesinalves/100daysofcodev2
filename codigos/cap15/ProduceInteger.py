@@ -19,7 +19,7 @@ class ProduceInteger(threading.Thread):
 
         for i in range(1, 11):
             time.sleep(random.randrange(4))
-            self.shared_object.setSharedNumber(1)
+            self.shared_object.setSharedNumber(i)
         
         print(self.getName(), "finished producing values")
         print("Terminating", self.getName())
