@@ -30,18 +30,18 @@ class SynchronizedCells:
         # produce a number in shared cells, consumer may consume
         self.shared_cells[self.write_location] = new_number
         self.readable = 1
-        print("Produced %2d into cell %d" % (new_number, self.write_location))
+        print("Produced %2d into cell %d" % (new_number, self.write_location), end = "") 
 
         # set writing index to next place in buffer
         self.write_location = (self.write_location + 1) % 5
 
-        print(" write %d read %d " % (self.write_location, self.read_location))
+        print(" write %d read %d " % (self.write_location, self.read_location), end = "")
         print(self.shared_cells)
 
         # if producer has caught up to consumer, buffer is full
         if self.write_location == self.read_location:
             self.writable = 0
-            print("Buffer Full")
+            print("BUFFER FULL")
         
         self.thread_condition.notify()
         self.thread_condition.release()
@@ -62,12 +62,12 @@ class SynchronizedCells:
         temp = self.shared_cells[self.read_location]
         self.shared_cells[self.read_location] = -1
 
-        print("Consumed %2d from cell %d" % (temp, self.read_location))
+        print("Consumed %2d from cell %d" % (temp, self.read_location), end = "" )
 
         # move to next produced number
         self.read_location = (self.read_location + 1) % 5
 
-        print(" write %d read %d " % (self.write_location, self.read_location))
+        print(" write %d read %d " % (self.write_location, self.read_location), end = "")
         print(self.shared_cells)
 
         # if consumer has caught up to producer, buffer is empty
