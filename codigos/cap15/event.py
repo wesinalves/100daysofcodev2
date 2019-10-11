@@ -48,6 +48,6 @@ while threading.activeCount() > 1:
     print("GREEN LIGHT")
     green_light.set()
 
-    time.sleep(3)
+    time.sleep(2)
 
     
