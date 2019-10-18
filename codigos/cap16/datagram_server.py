@@ -8,7 +8,7 @@ PORT = 5000
 counter = 0
 
 # step 1: create a socket
-my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # step 2: bind the socket
 my_socket.bind((HOST, PORT))
