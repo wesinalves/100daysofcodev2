@@ -15,7 +15,7 @@ while 1:
     # step 2: send a packet
     packet = input("Packet>>>")
     print("\nSending packet containing:", packet)
-    my_socket.sendto(packet, (HOST,PORT))
+    my_socket.sendto(packet.encode(), (HOST,PORT))
     print("Packet sent\n")
 
     # step 3: receive packet back from server
@@ -26,7 +26,7 @@ while 1:
     print("Host port: ", address[1])
     print("Length: ", len(packet))
     print("Containing")
-    print("\t" + packet + "\n")
+    print("\t" + packet.decode() + "\n")
 
 my_socket.close()
 

@@ -23,11 +23,11 @@ while 1:
     print("Host port: ", address[1])
     print("Length: ", len(packet))
     print("Containing")
-    print("\t", packet)
+    print("\t", packet.decode())
 
     #step 4: echo packet back to client
     print("\nEcho data to client...", end = "")
-    my_socket.sendto(packet,address)
+    my_socket.sendto(packet.encode(),address)
     print("Packet sent\n")
 
 
