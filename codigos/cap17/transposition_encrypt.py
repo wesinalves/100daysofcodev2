@@ -4,8 +4,8 @@
 import pyperclip
 
 def main():
-    #my_message = 'In the begining God created the universe.'
-    my_message = 'Common sense is not so common.'
+    my_message = 'In the begining God created the universe.'
+    #my_message = 'Common sense is not so common.'
     my_key = 8
 
     cipher_text = encrypt(my_key, my_message)

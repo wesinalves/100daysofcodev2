@@ -4,7 +4,7 @@
 import math, pyperclip
 
 def main():
-    my_message = "Cenoonommstmme oo snnio. s s c"
+    my_message = "IeGtu.ngoen idditn  vhicteenrhr geesb a e"
     my_key = 8
 
     plain_text = decrypt_message(my_key, my_message)
@@ -18,7 +18,7 @@ def decrypt_message(key, message):
     # "rows" of the grid that the plaintext is written on by using a list
     # of strings. First, we need to calculate a few values
 
-    columns_number = math.ceil(len(message)/key)
+    columns_number = math.ceil(len(message) / key)
     rows_number = key
 
     shadedbox_number = (columns_number * rows_number) - len(message)
@@ -34,7 +34,7 @@ def decrypt_message(key, message):
 
         # if there are no more columns or we're at a shaded box, go back to 
         # the first column and the newt row
-        if (col == columns_number) or (col == columns_number - 1 and rows_number >= rows_number - shadedbox_number):
+        if (col == columns_number) or (col == columns_number - 1 and row >= rows_number - shadedbox_number):
             col = 0
             row += 1
     
