@@ -1,4 +1,4 @@
-# Python Journey - Chapter 16
+# Python Journey - Chapter 17
 # Class for Caesar Cipher
 
 class CaesarCipher:
