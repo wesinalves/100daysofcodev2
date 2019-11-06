@@ -6,11 +6,11 @@ import pyperclip
 import cryptomath
 import random
 
-SYMBOLS = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]
+SYMBOLS = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]\
 ^_`abcdefghijklmnopqrstuvwxyz{|}~""" # note the space at the front
 
 def main():
-    my_massage = """A computer would deserve to be called intelligent if it \
+    my_massage = """"A computer would deserve to be called intelligent if it 
         could deceive a human into believing that it was human." -Alan Turing"""
     
     my_key = 2023
