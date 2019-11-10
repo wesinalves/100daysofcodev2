@@ -5,18 +5,18 @@ import random, sys, os, rabinMiller, cryptomath
 
 def main():
     print('Making key files...')
-    make_keyfiles('al_sweigart', 1024)
+    make_keyfiles('wr_alves', 1024)
     print('Key files made.')
 
 def generate_key(key_size):
-    # Creates a public/private key pair with keys that are keySize bits in
+    # Creates a public/private key pair with keys that are key_size bits in
     # size. This function may take a while to run.
 
     # Step 1: Create two prime numbers, p and q. Calculate n = p * q.
     print('Generating p prime...')
-    p = rabinMiller.generateLargePrime(keySize)
+    p = rabinMiller.generate_large_prime(key_size)
     print('Generating q prime...')
-    q = rabinMiller.generateLargePrime(keySize)
+    q = rabinMiller.generate_large_prime(key_size)
     n = p * q
 
     # Step 2: Create a number e that is relatively prime to (p-1)*(q-1).
@@ -29,7 +29,7 @@ def generate_key(key_size):
     
     # Step 3: Calculate d, the mod inverse of e.
     print('Calculating d that is mod inverse of e...')
-    d = cryptomath.findModInverse(e, (p - 1) * (q - 1))
+    d = cryptomath.find_module_inverse(e, (p - 1) * (q - 1))
 
     public_key = (n, e)
     private_key = (n, d)

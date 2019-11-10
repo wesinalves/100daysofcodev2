@@ -8,11 +8,11 @@ def gcd(a, b):
     
     return b
 
-def findmod_inverse(a, m):
+def find_module_inverse(a, m):
     # Returns the modular inverse of a % m, which is
     # the number x such that a*x % m = 1
 
-    if gdc(a, m) != 1:
+    if gcd(a, m) != 1:
         return None
     
     # Calculate using the Extended Euclidean Algorithm:
