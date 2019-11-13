@@ -25,7 +25,7 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',\
 for quiz in range(35):
     # TODO: Create the quiz and answer key files.
     quiz_file = open('capitalsquiz%s.txt' % (quiz + 1), 'w')
-    answerKeyFile = open('capitalsquiz_answers%s.txt' % (quiz + 1), 'w')
+    answer_key_file = open('capitalsquiz_answers%s.txt' % (quiz + 1), 'w')
 
     # TODO: Write out the header for the quiz.
     quiz_file.write('Name:\n\nDate:\n\nPeriod:\n\n')
@@ -47,8 +47,16 @@ for quiz in range(35):
         random.shuffle(answer_options)
 
         # TODO: Write the question and answer options to the quiz file.
+        quiz_file.write('%s. What is the capital of %s?\n' % (question + 1, states[question]))
+        for i in range(4):
+            quiz_file.write(' %s. %s\n' % ('ABCD'[i], answer_options[i]))
+        quiz_file.write('\n')
 
         # TODO: Write the answer key to a file.
+        answer_key_file.write('%s. %s\n' % (question + 1, 'ABCD'[answer_options.index(correct_answer)]))
+    
+    quiz_file.close()
+    answer_key_file.close()
 
 
 
