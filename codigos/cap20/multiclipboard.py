@@ -21,6 +21,4 @@ elif len(sys.argv) == 2:
     elif sys.argv[1] in mcb_shelf:
         pyperclip.copy(mcb_shelf[sys.argv[1]])
 
-
-
 mcb_shelf.close()
