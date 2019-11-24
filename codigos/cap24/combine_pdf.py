@@ -9,10 +9,21 @@ for filename in os.listdir('.'):
     if filename.endswith('.pdf'):
         pdf_files.append(filename)
 
-pdfFiles.sort(key/str.lower)
+pdf_files.sort(key/str.lower)
 
-pdfWriter = PyPDF2.PdfFileWriter()
+pdf_writer = PyPDF2.PdfFileWriter()
 
-# TODO: Loop through all the PDF files.
-# TODO: Loop through all the pages (except the first) and add them.
-# TODO: Save the resulting PDF to a file.
+# Loop through all the PDF files.
+for filename in pdf_files:
+    pdf = open(filename, 'rb')
+    pdf_reader = PyPDF2.PdfFileReader(pdf)
+    # Loop through all the pages (except the first) and add them.
+    for page_num in range(pdf_reader.numPages):
+        page = pdf_reader.getPage(page_num)
+        pdf_writer.addPage(page)
+    
+
+# Save the resulting PDF to a file.
+pdf_output = open('allminutes.pdf', 'wb')
+pdf_writer.write(pdf_output)
+pdf_output.close()
