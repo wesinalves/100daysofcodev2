@@ -15,7 +15,7 @@ logo_image = Image.open(os.path.join(dir,LOGO_FILENAME))
 logo_image = logo_image.resize((30,15))
 logo_width, logo_height = logo_image.size
 
-# TODO: Loop over all files in the working directory.
+# Loop over all files in the working directory.
 
 os.makedirs(os.path.join(dir,'withlogo'), exist_ok=True)
 for filename in os.listdir(dir):
@@ -25,10 +25,10 @@ for filename in os.listdir(dir):
     im = Image.open(os.path.join(dir,filename))
     width, height = im.size
 
-    # TODO: Check if image needs to be resized.
+    # Check if image needs to be resized.
 
     if width > SQUARE_FIT_SIZE and height > SQUARE_FIT_SIZE:
-        # TODO: Calculate the new width and height to resize to.
+        # Calculate the new width and height to resize to.
         if width > height:
             height = int((SQUARE_FIT_SIZE / width) * height)
             width = SQUARE_FIT_SIZE
@@ -36,15 +36,15 @@ for filename in os.listdir(dir):
             width = int((SQUARE_FIT_SIZE / height) * width)
             height = SQUARE_FIT_SIZE
         
-        # TODO: Resize the image.
+        # Resize the image.
         print("resizing %s..." % (filename))
         im = im.resize((width,height))
 
-    # TODO: Add the logo.
+    # Add the logo.
     print("adding the logo to %s..." % (filename))
     im.paste(logo_image, (width - logo_width, height - logo_height), logo_image)
 
-    # TODO: Save changes.
+    # Save changes.
     im.save(os.path.join(dir,'withlogo', filename))
 
 
