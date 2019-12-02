@@ -19,4 +19,3 @@ if len(lines) > 0:
     print("<br>".join(lines))
 else:
     print("No phone or emails are found!")
-
