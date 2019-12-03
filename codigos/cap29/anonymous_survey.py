@@ -1,10 +1,10 @@
-# Python Journey - Chapter 28
+# Python Journey - Chapter 29
 # A class to be used in unittest
 
-class AnonymousSurver():
+class AnonymousSurvey:
     """Collect anonymous answers to a survey question."""
 
-    def __init__(self):
+    def __init__(self, question):
         """Store a question, and prepare to store responses."""
         self.question = question
         self.responses = []
