@@ -1,4 +1,4 @@
-# Python Journey - Chapter 19
+# Python Journey - Chapter 29
 # Unit test for name function
 
 import unittest
