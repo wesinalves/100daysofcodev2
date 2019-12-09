@@ -1,3 +1,6 @@
+# Python Journey - Chapter 30
+# Settings for Alien Invasion game
+
 class Settings:
     """A class to store all settings for Alien Invasion."""
 
