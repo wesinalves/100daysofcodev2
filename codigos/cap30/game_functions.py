@@ -42,12 +42,14 @@ def check_events(settings, screen, ship, bullets):
 
 def update_screen(settings, screen, ship, bullets):
     """Update images on the screen and flip to the new screen."""
+        
+    # Redraw the screen during each pass through the loop.
+    screen.fill(settings.bg_color)
+    
     # Redraw all bullets behind ship and aliens.
     for bullet in bullets:
         bullet.draw_bullet()
-    
-    # Redraw the screen during each pass through the loop.
-    screen.fill(settings.bg_color)
+
     ship.blitme()
     
     # Make the most recently drawn screen visible.
