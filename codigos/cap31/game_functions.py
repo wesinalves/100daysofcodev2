@@ -1,4 +1,4 @@
-# Python Journey - Chapter 31
+# Python Journey - Chapter 30
 # Game functions for Alien Invasion
 
 import sys
@@ -15,9 +15,7 @@ def check_keydown_events(event, settings, screen, ship, bullets):
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
         # Create a new bullet and add it to the bullets group.
-        fire_bullet(settings, screen, ship, bullets)
-    elif event.key == pygame.K_q:
-        sys.exit()        
+        fire_bullet(settings, screen, ship, bullets)        
 
 def check_keyup_events(event, ship):
     """Respond to keyreleases."""
