@@ -107,7 +107,7 @@ def check_fleet_edges(settings, aliens):
     """Respond appropriately if any aliens have reached an edge."""
     for alien in aliens.sprites():
         if alien.check_edges():
-            change_fleet_direction(settings, alien)
+            change_fleet_direction(settings, aliens)
             break
 
 def change_fleet_direction(settings, aliens):
