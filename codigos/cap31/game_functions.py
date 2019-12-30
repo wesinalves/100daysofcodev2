@@ -2,9 +2,11 @@
 # Game functions for Alien Invasion
 
 import sys
+from time import sleep
 import pygame
 from bullet import Bullet
 from alien import Alien
+
 
 def check_keydown_events(event, settings, screen, ship, bullets):
     """Respond to keypresses."""
@@ -16,7 +18,9 @@ def check_keydown_events(event, settings, screen, ship, bullets):
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
         # Create a new bullet and add it to the bullets group.
-        fire_bullet(settings, screen, ship, bullets)        
+        fire_bullet(settings, screen, ship, bullets)
+    elif event.key == pygame.K_q:
+        sys.exit()        
 
 def check_keyup_events(event, ship):
     """Respond to keyreleases."""
@@ -77,6 +81,7 @@ def check_bullets_aliens_collisions(settings, screen, ship, bullets, aliens):
         create_fleet(settings, screen, ship, aliens)
 
 def fire_bullet(settings, screen, ship, bullets):
+    """Fire bullets of the ship"""
     if len(bullets) < settings.bullets_allowed:
         new_bullet = Bullet(settings, screen, ship)
         bullets.add(new_bullet)
@@ -130,12 +135,45 @@ def change_fleet_direction(settings, aliens):
         alien.rect.y += settings.fleet_drop_speed
     settings.fleet_direction *= -1
 
+def ship_hit(settings, stats, screen, ship, aliens, bullets):
+    """Respond to ship being hit by alien."""
 
+    if stats.ships_left > 0:
+        stats.ships_left -= 1
 
-def update_aliens(settings, aliens):
+        # Empty the list of aliens and bullets.
+        aliens.empty()
+        bullets.empty()
+
+        # Create a new fleet and center the ship.
+        create_fleet(settings, screen, ship, aliens)
+        ship.center_ship()
+
+        # Pause.
+        sleep(0.5)
+    else:
+        stats.game_active = False
+
+def check_aliens_bottom(settings, stats, screen, ship, aliens, bullets):
+    """Check if any aliens have reached the bottom of the screen."""
+    screen_rect = screen.get_rect()
+    for alien in aliens.sprites():
+        if alien.rect.bottom >= screen_rect.bottom:
+            # Treat this the same as if the ship got hit.
+            ship_hit(settings, stats, screen, ship, aliens, bullets)
+            break
+
+def update_aliens(settings, stats, screen, ship, aliens, bullets):
     """
     Check if the fleet is at an edge,
     and then update the postions of all aliens in the fleet.
     """
     check_fleet_edges(settings, aliens)
     aliens.update()
+
+    # Look for alien-ship collisions.
+    if pygame.sprite.spritecollideany(ship, aliens):
+        ship_hit(settings, stats, screen, ship, aliens, bullets)
+    
+    # Look for aliens hitting the bottom of the screen.
+    check_aliens_bottom(settings, stats, screen, ship, aliens, bullets)
