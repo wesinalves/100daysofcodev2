@@ -1,4 +1,4 @@
-# Python Journey - Chapter 31
+# Python Journey - Chapter 32
 # Creating a Pygame Window and Responding to User Input for Alien Invasion project
 
 import pygame

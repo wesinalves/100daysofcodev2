@@ -1,4 +1,4 @@
-# Python Journey - Chapter 30
+# Python Journey - Chapter 32
 # Bullet class for Alien Invasion game
 
 import pygame

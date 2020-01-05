@@ -1,4 +1,4 @@
-# Python Journey - Chapter 30
+# Python Journey - Chapter 32
 # Game functions for Alien Invasion
 
 import sys

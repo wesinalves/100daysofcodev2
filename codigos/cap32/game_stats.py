@@ -1,4 +1,4 @@
-# Python Journey - Chapter 31
+# Python Journey - Chapter 32
 # Statistics for Alien Invasion game
 
 class GameStats():

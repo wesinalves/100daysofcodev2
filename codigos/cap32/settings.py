@@ -1,4 +1,4 @@
-# Python Journey - Chapter 30
+# Python Journey - Chapter 32
 # Settings for Alien Invasion game
 
 class Settings:

@@ -1,4 +1,4 @@
-# Python Journey - Chapter 30
+# Python Journey - Chapter 32
 # Ship class used in the Alien Invasion game
 
 import pygame
