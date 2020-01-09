@@ -66,7 +66,7 @@ def check_events(settings, screen, stats, play_button, ship, aliens, bullets):
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_play_button(settings, screen, stats, play_button, ship, aliens, bullets, mouse_x, mouse_y)
 
-def update_screen(settings, stats, screen, ship, aliens, bullets, play_button):
+def update_screen(settings, stats, screen, sb, ship, aliens, bullets, play_button):
     """Update images on the screen and flip to the new screen."""
     # Redraw the screen during each pass through the loop.
     screen.fill(settings.bg_color)
@@ -78,10 +78,12 @@ def update_screen(settings, stats, screen, ship, aliens, bullets, play_button):
     ship.blitme()
     aliens.draw(screen)
 
+    # Draw the score information
+    sb.show_score()
+
     # Draw the play button if the game is inactive
     if not stats.game_active:
         play_button.draw_button()
-    
     # Make the most recently drawn screen visible.
     pygame.display.flip()
 
@@ -94,8 +96,6 @@ def update_bullets(settings, screen, ship, aliens, bullets):
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
-
-    
     check_bullets_aliens_collisions(settings, screen, ship, bullets, aliens)
 
 def check_bullets_aliens_collisions(settings, screen, ship, bullets, aliens):
@@ -205,6 +205,5 @@ def update_aliens(settings, stats, screen, ship, aliens, bullets):
     # Look for alien-ship collisions.
     if pygame.sprite.spritecollideany(ship, aliens):
         ship_hit(settings, stats, screen, ship, aliens, bullets)
-    
     # Look for aliens hitting the bottom of the screen.
     check_aliens_bottom(settings, stats, screen, ship, aliens, bullets)
