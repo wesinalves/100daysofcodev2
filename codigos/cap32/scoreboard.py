@@ -1,6 +1,8 @@
 # Python Journey - Chapter 32
 # Scoreboard for Alien Invasion game
 
+import pygame
+
 class Scoreboard():
     """A class to report scoring information."""
 
