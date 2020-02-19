@@ -35,7 +35,7 @@ def heap_sort(elements):
     build_min_heap(elements)
     for i in range(length-1, 0, -1):
         elements[i], elements[0] = elements[0], elements[i]
-        min_heapfy(elements, 1)
+        min_heapfy(elements, length)
         print(elements)
 
 #termination
