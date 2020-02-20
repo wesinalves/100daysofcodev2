@@ -2,11 +2,12 @@
 # Heap sort implementation.
 
 # initialization
-GOAL_SCORES = [16, 15, 7, 6, 8, 10, 9, 12, 13, 11]
+#GOAL_SCORES = [16, 15, 7, 6, 8, 10, 9, 12, 13, 11]
+GOAL_SCORES = [7,5,8,3,2,11,20,6,1,15,16,4]
 
 # processing
 def max_heapfy(elements, length, index):
-    """Create a max binary tree"""
+    """Make sure max heap property"""
     current_parent = index
     child_left = index * 2 + 1
     child_right = index * 2 + 2
