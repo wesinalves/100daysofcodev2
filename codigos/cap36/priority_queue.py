@@ -17,3 +17,12 @@ def heap_extract_max(elements, length):
     length = length - 1
     hp.max_heapfy(elements, length, 0)
     return max
+
+def heap_increase_key(elements, index, key):
+    """Method to increase value of key"""
+    if key < elements[index]:
+        raise BaseException("new key is lower than current key")
+    elements[index] = key
+    while index > 0 and elements[len(elements)//2] < elements[index]:
+        elements[index], elements[len(elements)//2] = elements[len(elements)//2], elements[index]
+        index = len(elements)//2
