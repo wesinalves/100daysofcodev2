@@ -1,9 +1,12 @@
 # Journey Python - Chapter 35
 # Heap sort implementation.
+from random import shuffle
 
 # initialization
 #GOAL_SCORES = [16, 15, 7, 6, 8, 10, 9, 12, 13, 11]
-GOAL_SCORES = [7,5,8,3,2,11,20,6,1,15,16,4]
+#GOAL_SCORES = [7, 5, 8, 3, 2, 11, 20, 6, 1, 15, 16, 4]
+GOAL_SCORES = list(range(1000))
+shuffle(GOAL_SCORES)
 
 # processing
 def max_heapfy(elements, length, index):
@@ -24,20 +27,21 @@ def max_heapfy(elements, length, index):
         elements[index], elements[current_parent] = elements[current_parent], elements[index]
         max_heapfy(elements, length, current_parent)
 def build_max_heap(elements):
-    """Sort an element list in ascending order"""
+    """Build a max heap"""
     length = len(elements)
-    #sprint(length)
-    # build a max heap
     for i in range(length//2 - 1, -1, -1):
         max_heapfy(elements, length - 1, i)
-    # print sorted elements
+def heap_sort(elements):
+    """Sort elements in ascending order"""
+    length = len(elements)
+    build_max_heap(elements)
     for i in range(length - 1, 0, -1):
-        print(elements)
+        #print(elements)
         elements[i], elements[0] = elements[0], elements[i]
         max_heapfy(elements, i - 1, 0)
 
 
 # termination
 print(GOAL_SCORES)
-build_max_heap(GOAL_SCORES)
+heap_sort(GOAL_SCORES)
 print(GOAL_SCORES)
