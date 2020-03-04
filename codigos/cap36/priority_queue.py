@@ -42,6 +42,6 @@ def heap_increase_key(elements, index, key):
 def max_heap_insert(elements, length, key):
     """Method to insert an element"""
     length += 1
-    elements[length] = float('-inf')
-    heap_increase_key(elements,lengh, key)
+    elements.append(float('-inf'))
+    heap_increase_key(elements,length - 1, key)
 
