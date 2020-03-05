@@ -1,8 +1,10 @@
 # Journey Python - Chapter 5
 # Quick sort implementation.
+from random import shuffle
 
 # initialization
-goal_scores = [16, 15, 7, 6, 8, 10, 9, 12, 13, 11]
+GOAL_SCORES = list(range(1000))
+shuffle(GOAL_SCORES)
 
 # processing
 def partition(vector, start, end):
@@ -29,6 +31,6 @@ def quick_sort(vector, start, end):
 
 
 # termination
-print(goal_scores)
-quick_sort(goal_scores,0,len(goal_scores)-1)
+print(GOAL_SCORES)
+quick_sort(GOAL_SCORES,0,len(GOAL_SCORES)-1)
 #print(goal_scores)
