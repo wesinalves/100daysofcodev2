@@ -1,9 +1,9 @@
-# Journey Python - Chapter 5
+# Journey Python - Chapter 37
 # Quick sort implementation.
 from random import shuffle
 
 # initialization
-GOAL_SCORES = list(range(1000))
+GOAL_SCORES = list(range(10))
 shuffle(GOAL_SCORES)
 
 # processing
