@@ -1,5 +1,7 @@
+'''
 # Journey Python - Chapter 37
-# Quick sort implementation.
+# Merge sort implementation.
+'''
 from random import shuffle
 
 # initialization
