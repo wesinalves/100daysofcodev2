@@ -32,5 +32,5 @@ def quick_sort(vector, start, end):
 
 # termination
 print(GOAL_SCORES)
-quick_sort(GOAL_SCORES,0,len(GOAL_SCORES)-1)
+quick_sort(GOAL_SCORES, 0, len(GOAL_SCORES)-1)
 #print(goal_scores)
