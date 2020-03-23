@@ -12,7 +12,7 @@ print("integer2: ", id(integer2), type(integer2), integer2)
 integer2 = int(integer2)
 print("integer2: ", id(integer2), type(integer2), integer2)
 
-sum = integer1 + integer2
+value = integer1 + integer2
 
-print("Sum is: ", sum)
-print("sum: ", id(sum), type(sum), sum)
+print("Sum is: ", value)
+print("sum: ", id(value), type(value), value)
