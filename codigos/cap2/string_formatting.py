@@ -22,5 +22,4 @@ stringValue = "String formatting"
 print("Force eight digits in integer %.8d" % integerValue)
 print("Five digits after decimal in float %.5f" % floatValue)
 print("Fifteen and five characters allowed in string:")
-print("({:15s}) ({:.5s})".format( stringValue, stringValue ))
-
+print("({:15s}) ({:.5s})".format(stringValue, stringValue))
