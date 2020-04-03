@@ -7,6 +7,6 @@ integer1 = int(integer1)
 integer2 = input("Enter second integer:\n")
 integer2 = int(integer2)
 
-sum = integer1 + integer2
+total = integer1 + integer2
 
-print("Sum is: ", sum)
+print("Sum is: ", total)
