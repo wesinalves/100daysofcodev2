@@ -1,4 +1,4 @@
-# Jornada Python - Capítulo 2
+# Como Programar em Python - Capítulo 2
 # String formatting demonstration
 
 print("O Senhor é meu pastor, nada me faltará. 'Salmo 23:1'")

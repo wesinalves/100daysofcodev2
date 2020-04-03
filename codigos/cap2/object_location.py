@@ -1,5 +1,5 @@
 """
-# Jornada Python - Capítulo 2
+# Como Programar em Python - Capítulo 2
 # Sum two intergers showing metadatas.
 """
 integer1 = input("Enter first integer:\n")
