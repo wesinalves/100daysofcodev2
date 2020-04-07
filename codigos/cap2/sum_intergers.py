@@ -1,12 +1,13 @@
+'''
 # Como Programar em Python - Capítulo 2
 # Sum two intergers.
+'''
+INTEGER1 = input("Enter first integer:\n")
+INTEGER1 = int(INTEGER1)
 
-integer1 = input("Enter first integer:\n")
-integer1 = int(integer1)
+INTEGER2 = input("Enter second integer:\n")
+INTEGER2 = int(INTEGER2)
 
-integer2 = input("Enter second integer:\n")
-integer2 = int(integer2)
+SUM_INTEGERS = INTEGER1 + INTEGER2
 
-sum_integers = integer1 + integer2
-
-print("Sum is: ", sum_integers)
+print("Sum is: ", SUM_INTEGERS)
