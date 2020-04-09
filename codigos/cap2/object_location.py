@@ -2,18 +2,18 @@
 # Como Programar em Python - Capítulo 2
 # Sum two intergers showing metadatas.
 """
-integer1 = input("Enter first integer:\n")
-print("integer1: ", id(integer1), type(integer1), integer1)
-integer1 = int(integer1)
-print("integer1: ", id(integer1), type(integer1), integer1)
+INTEGER1 = input("Enter first integer:\n")
+print("INTEGER1: ", id(INTEGER1), type(INTEGER1), INTEGER1)
+INTEGER1 = int(INTEGER1)
+print("INTEGER1: ", id(INTEGER1), type(INTEGER1), INTEGER1)
 
 
-integer2 = input("Enter second integer:\n")
-print("integer2: ", id(integer2), type(integer2), integer2)
-integer2 = int(integer2)
-print("integer2: ", id(integer2), type(integer2), integer2)
+INTEGER2 = input("Enter second integer:\n")
+print("INTEGER2: ", id(INTEGER2), type(INTEGER2), INTEGER2)
+INTEGER2 = int(INTEGER2)
+print("INTEGER2: ", id(INTEGER2), type(INTEGER2), INTEGER2)
 
-integer = integer1 + integer2
+SUM_INTEGER = INTEGER1 + INTEGER2
 
-print("Sum is: ", integer)
-print("sum: ", id(integer), type(integer), integer)
+print("Sum is: ", SUM_INTEGER)
+print("sum: ", id(SUM_INTEGER), type(SUM_INTEGER), SUM_INTEGER)
