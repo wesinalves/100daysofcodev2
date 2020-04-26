@@ -1,6 +1,6 @@
 '''
 How to program in Python - Chapter 3
-Class average problem with counter-controlled repetition.
+Class average problem with sentinel repetition.
 '''
 
 # initialization

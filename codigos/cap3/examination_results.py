@@ -1,26 +1,29 @@
-# Jornada Python - Capítulo 3
-# Analysis of examination results
+'''
+How to program in Python - Chapter 3
+Analysis of examination results
+A counter-controlled repetition example
+'''
 
 # initialize variables
-passes = 0
-failures = 0
-student_counter = 0
+PASSES = 0
+FAILURES = 0
+STUDENT_COUNTER = 0
 
 # processing phase
-while student_counter < 10:
-    result = input("Enter result (1=pass,2=fail):")
-    result = int(result)
+while STUDENT_COUNTER < 10:
+    RESULT = input("Enter RESULT (1=pass,2=fail):")
+    RESULT = int(RESULT)
 
-    if result == 1:
-        passes = passes + 1
+    if RESULT == 1:
+        PASSES = PASSES + 1
     else:
-        failures = failures + 1
-    
-    student_counter = student_counter + 1
+        FAILURES = FAILURES + 1
+
+    STUDENT_COUNTER = STUDENT_COUNTER + 1
 
 # termination phase
-print("Passed", passes)
-print("Failures", failures)
+print("Passed", PASSES)
+print("FAILURES", FAILURES)
 
-if passes > 8:
+if PASSES > 8:
     print("Raise Tuition")

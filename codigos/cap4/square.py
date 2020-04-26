@@ -1,9 +1,11 @@
-# Journey Python - Chapter 4
-# Creating and using a programmer-defined function.
+'''
+How to program in Python - Chapter 4
+Creating and using a programmer-defined function.
+'''
 
-# function definition
-def square(y):
-    return y * y
+def square(number):
+    '''Defining square function'''
+    return number * number
 
 for x in range(1, 11):
     print(square(x))

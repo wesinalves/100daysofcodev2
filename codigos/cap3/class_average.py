@@ -1,19 +1,20 @@
-# Jornada Python - Capítulo 3
-# Class average problem with counter-controlled repetition.
-
+'''
+How to program in Python - Chapter 3
+Class average problem with counter-controlled repetition.
+'''
 #initialization
-total = 0
-grade_counter = 0
+TOTAL = 0
+GRADE_COUNTER = 0
 
 #processing
-while grade_counter <= 10:
-    grade = input("Enter grade: ")
-    grade = int(grade)
-    total = total + grade
-    grade_counter = grade_counter + 1
+while GRADE_COUNTER <= 10:
+    GRADE = input("Enter GRADE: ")
+    GRADE = int(GRADE)
+    TOTAL = TOTAL + GRADE
+    GRADE_COUNTER = GRADE_COUNTER + 1
 
 
 #termination
-average = total / 10
-print("Class average is :", average)
+AVERAGE = TOTAL / 10
+print("Class AVERAGE is :", AVERAGE)
 

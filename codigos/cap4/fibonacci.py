@@ -1,9 +1,12 @@
-def fibonacci(number):
+'''
+How to program in Python - Chapter 4
+Fibonacci function using recursion
+'''
 
+def fibonacci(number):
+    '''Generate fibonacci numbers'''
     if number < 0:
-        print('Valor negativo é inválido')
-    
+        print('Negative value is invalid')
     if number == 0 or number == 1:
         return 1
-    else:
-        return fibonacci(number - 1) + fibonacci(number - 2)
+    return fibonacci(number - 1) + fibonacci(number - 2)
