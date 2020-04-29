@@ -2,10 +2,10 @@
 How to program in Python - Chapter 3
 Using the break statement to avoid repeating code in Class average problem.
 '''
+
 # initialization
 TOTAL = 0
 GRADE_COUNTER = 0
-
 
 # processing
 while 1:

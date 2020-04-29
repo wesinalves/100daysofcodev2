@@ -1,16 +1,15 @@
 '''
 How to program in Python - Chapter 3
 Analysis of examination results
-A counter-controlled repetition example
 '''
 
 # initialize variables
 PASSES = 0
 FAILURES = 0
-STUDENT_COUNTER = 0
+STUDENT_COUNTER = 1
 
-# processing phase
-while STUDENT_COUNTER < 10:
+# processing
+while STUDENT_COUNTER <= 10:
     RESULT = input("Enter RESULT (1=pass,2=fail):")
     RESULT = int(RESULT)
 
@@ -21,7 +20,7 @@ while STUDENT_COUNTER < 10:
 
     STUDENT_COUNTER = STUDENT_COUNTER + 1
 
-# termination phase
+# termination
 print("Passed", PASSES)
 print("FAILURES", FAILURES)
 
