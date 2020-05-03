@@ -1,40 +1,40 @@
 '''
 How to program in Python - Chapter 4
 Finding the maximum of three integers
+using keyboard entry
 '''
 
-
-def maximum_value(x, y, z):
+def maximum_value(x_value, y_value, z_value):
     '''Maximum value between three numbers'''
-    maximum = x
+    maximum = x_value
 
-    if y > maximum:
-        maximum = y
+    if y_value > maximum:
+        maximum = y_value
 
-    if z > maximum:
-        maximum = z
+    if z_value > maximum:
+        maximum = z_value
 
     return maximum
 
 
-a = int(input("Enter first integer: "))
-b = int(input("Enter second integer: "))
-c = int(input("Enter third integer: "))
+A_VALUE = int(input("Enter first integer: "))
+B_VALUE = int(input("Enter second integer: "))
+C_VALUE = int(input("Enter third integer: "))
 
 # function call
-print("Maximum integer is:", maximum_value(a, b, c))
+print("Maximum integer is:", maximum_value(A_VALUE, B_VALUE, C_VALUE))
 print()  # print new line
 
-d = int(input("Enter first integer: "))
-e = int(input("Enter second integer: "))
-f = int(input("Enter third integer: "))
+D_VALUE = int(input("Enter first integer: "))
+E_VALUE = int(input("Enter second integer: "))
+F_VALUE = int(input("Enter third integer: "))
 
-print("Maximum integer is:", maximum_value(d, e, f))
+print("Maximum integer is:", maximum_value(D_VALUE, E_VALUE, F_VALUE))
 print()
 
-g = int(input("Enter first integer: "))
-h = int(input("Enter second integer: "))
-i = int(input("Enter third integer: "))
+G_VALUE = int(input("Enter first integer: "))
+H_VALUE = int(input("Enter second integer: "))
+I_VALUE = int(input("Enter third integer: "))
 
-print("Maximum integer is:", maximum_value(g, h, i))
+print("Maximum integer is:", maximum_value(G_VALUE, H_VALUE, I_VALUE))
 print()
