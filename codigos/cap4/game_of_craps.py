@@ -7,8 +7,8 @@ import random
 
 def roll_dices():
     '''Roll two dices'''
-    die1 = random.randrange(1, 7)
-    die2 = random.randrange(1, 7)
+    die1 = random.randint(1, 7)
+    die2 = random.randint(1, 7)
     work_sum = die1 + die2
     print('Player rolled {:d} + {:d} = {:d}'.format(die1, die2, work_sum))
     return work_sum
