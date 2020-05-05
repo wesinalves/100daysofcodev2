@@ -11,9 +11,9 @@ def generate_website(name, url="www.meusite.com",
     print("Gerando um website para:", name, "usando a url:", url)
 
     if flash == "yes":
-        print("com Flash habilitado")
+        print("with Flash enabled")
     if django == "yes":
-        print("desenvolvido com framework django")
+        print("developed wiht django framework")
 
     print("\n")
 
