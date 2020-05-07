@@ -13,5 +13,5 @@ def main():
         fruit = input('Enter a fruit (blank line to exit)')
     for item in fruits:
         print(item, end=',')
-    
+
 main()
