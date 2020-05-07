@@ -11,21 +11,21 @@ def main():
     print("The value of empty_dictionary is:", empty_dictionary)
 
     # create and print a dictionary with initial values
-    grades = {"John": 87, "Steve": 76, "Laura": 92, "Edwin": 89}
+    grades = {"João": 87, "Paulo": 76, "Laura": 92, "Maria": 89}
     print("\nAll grades:", grades)
 
     # access and modify an existing dictionary
-    print("\nSteve's current grade:", grades["Steve"])
-    grades["Steve"] = 90
-    print("Steve's new grade:", grades["Steve"])
+    print("\nPaulo's current grade:", grades["Paulo"])
+    grades["Paulo"] = 90
+    print("Paulo's new grade:", grades["Paulo"])
 
     # add to an existing dictionary
-    grades["Michael"] = 93
+    grades["Antonio"] = 93
     print("\nDictionary grades after modification:")
     print(grades)
 
     # delete entry from dictionary
-    del grades["John"]
+    del grades["João"]
     print("\nDictionary grades after deletion:")
     print(grades)
     excluded = grades.popitem()
