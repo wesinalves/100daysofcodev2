@@ -3,7 +3,7 @@ How to program in Python - Chapter 5
 Creating, accessing and changing a list.
 '''
 
-def create_list():
+def main():
     '''Creating list'''
     my_list = []  # create empty list
 
@@ -35,4 +35,4 @@ def create_list():
     my_list[-3] = 19
     print("Value of my_list after modification:", my_list)
 
-create_list()
+main()

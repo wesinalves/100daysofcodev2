@@ -4,7 +4,7 @@ Creating, accessing and modifying a dictionary.
 '''
 
 
-def dictionary():
+def main():
     '''Dictionary example'''
     # create and print an empty dictionary
     empty_dictionary = {}
@@ -31,4 +31,4 @@ def dictionary():
     excluded = grades.popitem()
     print('\nexcluded item: {} from dict: {}'.format(excluded, grades))
 
-dictionary()
+main()

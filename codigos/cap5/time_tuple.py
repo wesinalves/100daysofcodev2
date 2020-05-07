@@ -3,7 +3,7 @@ How to program in Python - Chapter 5
 Creating and accessing tuples.
 '''
 
-def time_tuple():
+def main():
     '''Creating Tuple'''
     # retrieve hour, minute and second from user
     hour = int(input("Enter hour: "))
@@ -19,4 +19,4 @@ def time_tuple():
         (current_time[0] * 3600 + current_time[1] * 60 + \
         current_time[2]))
 
-time_tuple()
+main()

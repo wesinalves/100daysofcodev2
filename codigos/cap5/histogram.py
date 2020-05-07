@@ -3,7 +3,7 @@ How to program in Python - Chapter 5
 Creating a histogram from a list of values.
 '''
 
-def histogram():
+def main():
     '''Creating a histogram'''
     values = []  # a list of values
 
@@ -20,4 +20,4 @@ def histogram():
     for index, value in enumerate(values):
         print("%7d %10d %s" % (index, value, "*" * value))
 
-histogram()
+main()

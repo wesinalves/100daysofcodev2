@@ -4,7 +4,7 @@ Dictionary methods example.
 '''
 
 
-def dictionary():
+def main():
     '''Dictionary methods example'''
     months_dictionary = {1: "January", 2: "February", 3: "March", \
                         4: "April", 5: "May", 6: "June", 7: "July", \
@@ -25,4 +25,4 @@ def dictionary():
     for key, value in months_dictionary.items():
         print("months_dictionary[", key, "] =", value)
 
-dictionary()
+main()

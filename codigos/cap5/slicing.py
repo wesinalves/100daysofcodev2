@@ -4,7 +4,7 @@ Slicing sequences.
 '''
 
 
-def slicing():
+def main():
     '''Slicing sequences example'''
     # create sequences
     slice_string = "abcdefghij"
@@ -30,4 +30,4 @@ def slicing():
     print("\nslice_list[", start, ":", end, "] = ",
           slice_list[start:end])
 
-slicing()
+main()

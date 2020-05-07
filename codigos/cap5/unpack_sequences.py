@@ -3,7 +3,7 @@ How to program in Python - Chapter 5
 Unpacking sequences.
 '''
 
-def unpacking():
+def main():
     '''Unpacking example'''
     # create sequences
     my_string = "abc"
@@ -31,4 +31,4 @@ def unpacking():
     number_x, number_y = number_y, number_x  # swap variables
     print("After swapping: number_x = %d, number_y = %d" % (number_x, number_y))
 
-unpacking()
+main()
