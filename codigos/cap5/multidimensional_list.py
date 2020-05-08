@@ -11,7 +11,7 @@ def print_grades(grades):
     exams = len(grades[0])  # number of exams
 
     # print table headers
-    print("The list is: \n")
+    print("The matrix is: \n")
     print(" ", end='\t\t')    
     for i in range(exams):
         print("[%d]" % i, end='\t')
