@@ -2,8 +2,8 @@
 How to program in Python - Chapter 5
 Multidimensional list example.
 '''
-from random import uniform
 
+from random import uniform
 
 def print_grades(grades):
     '''Print matrix of grades'''

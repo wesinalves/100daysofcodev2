@@ -8,8 +8,7 @@ def main():
     fruits = set()
     fruit = input('Enter a fruit (blank line to exit)')
     while fruit != '':
-        if fruit not in fruits:
-            fruits.add(fruit)
+        fruits.add(fruit)
         fruit = input('Enter a fruit (blank line to exit)')
     for item in fruits:
         print(item, end=',')
