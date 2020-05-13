@@ -13,7 +13,7 @@ class Pick:
 
         Pick.count += 1
 
-        print('Pick{} with size {} and color {}'.format(self.count, self.size, self.color))
+        print('Pick{} with size {} and color {}'.format(Pick.count, self.size, self.color))
 
     def __del__(self):
         '''Decrements count and print messages'''
