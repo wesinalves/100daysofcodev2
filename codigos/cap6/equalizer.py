@@ -23,6 +23,7 @@ class Equalizer:
             self.__dict__[feature] = 0
     def flat(self):
         '''Make it flat'''
-        self.treble = 0
-        self.bass = 0
-        self.middle = 0
+        self.treble = 50
+        self.bass = 50
+        self.middle = 50
+        self.volume = 50

@@ -21,15 +21,15 @@ def main():
         string.set_name(value[0])
         string.set_frequency(value[1])
         my_guitar.add_strings(string)
-    
-    my_guitar.increase_equalizer('volume', 50)
-    my_guitar.increase_equalizer('treble', 60)
-    my_guitar.increase_equalizer('middle', 52)
-    my_guitar.increase_equalizer('bass', 58)
+    my_guitar.flatten_equalizer()
+    my_guitar.increase_equalizer('treble', 10)
+    my_guitar.decrease_equalizer('bass', 12)
 
     print(my_guitar.pick.size, my_guitar.pick.color)
+    print()
     my_guitar.get_strings()
     print()
     my_guitar.get_equalizer()
+    print()
 
 main()
