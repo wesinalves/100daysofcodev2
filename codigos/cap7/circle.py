@@ -11,16 +11,16 @@ class Point:
 
     def __init__(self, x_value=0, y_value=0):
         """Point constructor takes x and y coordinates"""
-        self.x_coordinate = x_value
-        self.y_coordinate = y_value
+        self.x = x_value
+        self.y = y_value
 
 
 class Circle(Point):
     """Class that represents a circle"""
 
-    def __init__(self, x_value=0, y_value=0, radius_value=0.0):
+    def __init__(self, x=0, y=0, radius_value=0.0):
         """Circle constructor takes x and y coordinates of center point and radius"""
-        Point.__init__(self, x_value, y_value)  # call base-class constructor
+        Point.__init__(self, x, y)  # call base-class constructor
         self.radius = float(radius_value)
 
     def area(self):
