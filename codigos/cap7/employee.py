@@ -13,7 +13,6 @@ class Employee:
 
     def __str__(self):
         """String representation of an Employee"""
-
         return "{} {}".format(self.first_name, self.last_name)
 
 
@@ -22,24 +21,20 @@ class HourlyWorker(Employee):
 
     def __init__(self, first, last, init_hours, init_wage):
         """Constructor for HourlyWorker, takes first and last name,
-        23 initial number of hours and initial wage"""
-
+        initial number of hours and initial wage"""
         Employee.__init__(self, first, last)
         self.hours = float(init_hours)
         self.wage = float(init_wage)
 
-    def get_pay(self):
-        """Calculates HourlyWorker's weekly pay"""
-
-        return self.hours * self.wage
-
     def __str__(self):
         """String representation of HourlyWorker"""
-
         print("HourlyWorker.__str__ is executing")
-
         return "{} is an hourly worker with pay of ${:.2f}".format(Employee.__str__(self), \
             self.get_pay())
+    
+    def get_pay(self):
+        """Calculates HourlyWorker's weekly pay"""
+        return self.hours * self.wage
 
 def main():
     '''Main program'''
