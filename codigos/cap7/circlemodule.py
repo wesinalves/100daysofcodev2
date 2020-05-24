@@ -12,7 +12,6 @@ class Circle(Point):
 
     def __init__(self, x=0, y=0, radius_value=0.0):
         """Circle constructor takes center point and radius"""
-
         Point.__init__(self, x, y)  # call base-class constructor
         self.radius = float(radius_value)
 
@@ -41,7 +40,6 @@ def main():
     print("\nThe new location and radius of circle are:", circle)
     print("The area of circle is: {:.2f}".format(circle.area()))
     print("\ncircle printed as a Point is:", Point.__str__(circle))
-
 
 if __name__ == "__main__":
     main()

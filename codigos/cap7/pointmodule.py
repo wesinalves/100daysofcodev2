@@ -8,7 +8,6 @@ class Point:
 
     def __init__(self, xValue=0, yValue=0):
         """Point constructor takes x and y coordinates"""
-
         self.x = xValue
         self.y = yValue
 
@@ -27,7 +26,6 @@ def main():
     point.y = 10
 
     print("The new location of point is:", point)
-
 
 if __name__ == "__main__":
     main()

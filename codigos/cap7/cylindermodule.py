@@ -7,19 +7,16 @@ import math
 from pointmodule import Point
 from circlemodule import Circle
 
-
 class Cylinder(Circle):
     """Class that represents a cylinder"""
 
     def __init__(self, x, y, radius, height):
         """Constructor for Cylinder takes x, y, height and radius"""
-
         Circle.__init__(self, x, y, radius)
         self.height = float(height)
 
     def area(self):
         """Calculates (surface) area of a Cylinder"""
-
         return 2 * Circle.area(self) + 2 * math.pi * self.radius * self.height
 
     def volume(self):
