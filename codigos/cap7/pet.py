@@ -28,7 +28,7 @@ class Pet:
     def __str__(self):
         '''String representation of Pet'''
         return '{:s} {:d}'.format(self.name, self.age)
-    def food(self):
+    def eat(self):
         '''Abstract method to comput how much food it requires'''
         raise NotImplementedError('Cannot call abstract method')
 class Dog(Pet):
@@ -40,7 +40,7 @@ class Dog(Pet):
             raise NotImplementedError('Cannot create object of class Employee')
         Pet.__init__(self, name, age)
         self.weight = weight
-    def food(self):
+    def eat(self):
         '''Compute how much food it requires'''
         required = 0
 
@@ -70,6 +70,9 @@ class Beagle(Dog):
     def __str__(self):
         '''String representation of Beagle'''
         return '{:s}: {:s}'.format(Dog.__str__(self), 'Beagle')
+    def sleep(self):
+        '''Command to sleep the dog'''
+        return print('Beagle {} is sleeping.'.format(self.name))
 class Dalmatian(Dog):
     '''Concrete class,  inherits from Pet'''
 
@@ -82,6 +85,9 @@ class Dalmatian(Dog):
     def __str__(self):
         '''String representation of Dalmatian'''
         return '{:s}: {:s}'.format(Dog.__str__(self), 'Dalmatian')
+    def sleep(self):
+        '''Command to sleep the dog'''
+        return print('Dalmatian {} is sleeping.'.format(self.name))
 def main():
     '''Main program'''
     colors = (('black', 'white', 'brown'), ('black', 'white'), ('brown', 'white'))
@@ -92,6 +98,8 @@ def main():
     dogs = [Beagle(*colors[2], **dog_dict1), Beagle(*colors[0], **dog_dict2), \
         Dalmatian(*colors[1], **dog_dict3), Dalmatian(*colors[1], **dog_dict4)]
     for dog in dogs:
-        print(dog, dog.human_age, dog.colors, dog.food())
+        print(dog, dog.human_age, dog.colors, dog.eat())
+    dogs[0].sleep()
+    dogs[3].sleep()
     print("Number of pets created: {}".format(Pet.get_number()))
 main()
