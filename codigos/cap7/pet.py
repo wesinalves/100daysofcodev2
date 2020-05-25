@@ -7,6 +7,15 @@ import math
 
 class Pet:
     """Abstract base class for pet"""
+    number_of_pets = 0
+    @staticmethod
+    def get_number():
+        """Static method retuns number of pets"""
+        return Pet.number_of_pets
+    @classmethod
+    def transform_age(cls, value):
+        '''Utility method to compute human age'''
+        return math.log(value) * 16 + 31
 
     def __init__(self, name, age):
         '''Construtor for class pet'''
@@ -14,15 +23,14 @@ class Pet:
             raise NotImplementedError('Cannot create object of class Employee')
         self.name = name
         self.age = age
+        self.human_age = Pet.transform_age(int(age))
+        Pet.number_of_pets += 1
     def __str__(self):
         '''String representation of Pet'''
         return '{:s} {:d}'.format(self.name, self.age)
     def food(self):
         '''Abstract method to comput how much food it requires'''
         raise NotImplementedError('Cannot call abstract method')
-    def _human_age(self, value):
-        '''Utility method to compute human age'''
-        return math.log(value) * 16 + 31
 class Dog(Pet):
     '''Abstract class for Dog'''
 
@@ -32,7 +40,6 @@ class Dog(Pet):
             raise NotImplementedError('Cannot create object of class Employee')
         Pet.__init__(self, name, age)
         self.weight = weight
-        self.human_age = self._human_age(int(age))
     def food(self):
         '''Compute how much food it requires'''
         required = 0
@@ -50,7 +57,7 @@ class Dog(Pet):
         return '{} Kg'.format(required)
     def __str__(self):
         '''String representation of Dog'''
-        return '{:>10s} {:s}'.format('Dog', Pet.__str__(self))
+        return '{:s} {:s}'.format('Dog', Pet.__str__(self))
 class Beagle(Dog):
     '''Concrete class,  inherits from Pet'''
 
@@ -62,11 +69,7 @@ class Beagle(Dog):
         self.colors = args
     def __str__(self):
         '''String representation of Beagle'''
-        return '{:10}: {:s}'.format(Dog.__str__(self), 'Beagle')
-    def _human_age(self, value):
-        '''Overide method for class beagle'''
-        return int(math.log(value) * 12 + 31)
-
+        return '{:s}: {:s}'.format(Dog.__str__(self), 'Beagle')
 class Dalmatian(Dog):
     '''Concrete class,  inherits from Pet'''
 
@@ -78,22 +81,17 @@ class Dalmatian(Dog):
         self.colors = args
     def __str__(self):
         '''String representation of Dalmatian'''
-        return '{:10}: {:s}'.format(Dog.__str__(self), 'Dalmatian')
-    def _human_age(self, value):
-        '''Overide method for class Dalmatian'''
-        return int(math.log(value) * 20 + 31)
-
+        return '{:s}: {:s}'.format(Dog.__str__(self), 'Dalmatian')
 def main():
     '''Main program'''
     colors = (('black', 'white', 'brown'), ('black', 'white'), ('brown', 'white'))
     dog_dict1 = {'name':'snoop', 'age':3, 'weight':13, 'height':15, 'width':30}
     dog_dict2 = {'name':'jessy', 'age':2, 'weight':12, 'height':13, 'width':29}
-    dog_dict3 = {'name':'stark', 'age':4, 'weight':14, 'height':15, 'width':31}
-    dog_dict4 = {'name':'nebulosa', 'age':2, 'weight':12, 'height':13, 'width':28}
-    dogs = [Beagle(*colors[2], **dog_dict1), Beagle(*colors[0], **dog_dict2),
+    dog_dict3 = {'name':'stark', 'age':4, 'weight':22, 'height':21, 'width':41}
+    dog_dict4 = {'name':'nebulosa', 'age':2, 'weight':20, 'height':20, 'width':40}
+    dogs = [Beagle(*colors[2], **dog_dict1), Beagle(*colors[0], **dog_dict2), \
         Dalmatian(*colors[1], **dog_dict3), Dalmatian(*colors[1], **dog_dict4)]
-    
     for dog in dogs:
-        print(dog, dog._human_age(dog.age), dog.colors, dog.food())
-
+        print(dog, dog.human_age, dog.colors, dog.food())
+    print("Number of pets created: {}".format(Pet.get_number()))
 main()
