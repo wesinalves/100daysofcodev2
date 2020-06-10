@@ -1,5 +1,5 @@
 '''
-How to program in python - Chapter 9
+How to program in python - Chapter 8
 Button demonstration.
 '''
 from tkinter import *
