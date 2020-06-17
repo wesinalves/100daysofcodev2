@@ -16,18 +16,18 @@ def square_root(number):
     
     return math.sqrt(number)
 
-while 1:
-    # get user-entered number and compute square root
-    try:
-        user_value = float(input("\nPlease enter a number: "))
-        print(square_root(user_value))
-    
-    except ValueError:
-        print("The entered value is not a number")
-    
-    except NegativeNumberError as exception:
-        print(exception)
-    
-    else:
-        break
+def main():
+    '''Main Program'''
+    while 1:
+        # get user-entered number and compute square root
+        try:
+            user_value = float(input("\nPlease enter a number: "))
+            print(square_root(user_value))
+        except ValueError:
+            print("The entered value is not a number")
+        except NegativeNumberError as exception:
+            print(exception)
+        else:
+            break
 
+main()

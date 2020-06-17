@@ -1,8 +1,10 @@
-# Python Journey - Chapter 11
-# Using finally clauses.
+'''
+How to program in Python - Chapter 11
+Using finally clauses.
+'''
 
 def doNotRaiseException():
-    # try block does not raise any exceptions
+    '''try block does not raise any exceptions'''
     try:
         print("In doNotRaiseException()")
 
@@ -13,7 +15,7 @@ def doNotRaiseException():
     print("End of doNotRaiseException")
 
 def raiseExceptionDoNotCatch():
-    # raise exception, but do not catch it
+    '''raise exception, but do not catch it'''
     try:
         print("In raiseExceptionDoNotCatch()")
         raise Exception
@@ -23,15 +25,18 @@ def raiseExceptionDoNotCatch():
     
     print("Will never reach this point")
 
-# main program
-# case 1: no exceptions occurs in called function
-doNotRaiseException()
+def main():
+    '''Main Program'''
+    # case 1: no exceptions occurs in called function
+    doNotRaiseException()
 
-# case2: Exception occurs, but is not handled in called function,
-# because no except clauses exist in raiseExceptionDoNotCatch
+    # case2: Exception occurs, but is not handled in called function,
+    # because no except clauses exist in raiseExceptionDoNotCatch
 
-try:
-    raiseExceptionDoNotCatch()
+    try:
+        raiseExceptionDoNotCatch()
 
-except Exception:
-    print("Caught exception from raiseExceptionDoNotCatch")
+    except Exception:
+        print("Caught exception from raiseExceptionDoNotCatch")
+
+main()
