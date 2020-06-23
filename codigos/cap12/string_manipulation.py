@@ -1,5 +1,7 @@
-# Journey Python - Chapter 12
-# Regular-expression string manipulation.
+'''
+How to program in Python - Chapter 12
+Regular-expression string manipulation.
+'''
 
 import re
 

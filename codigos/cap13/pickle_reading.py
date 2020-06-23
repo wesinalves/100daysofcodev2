@@ -1,20 +1,28 @@
-# Python Journey - Chapter 13
-# Reading pickled object from a file.
+'''
+How to program in Python - Chapter 13
+Reading pickled object from a file.
+'''
 
-import sys, pickle
+import sys
+import pickle
 
-# open file
-try:
-    file = open("users.dat", "rb")
-except IOError:
-    print("File not found", file = sys.stderr)
-    sys.exit(1)
 
-records = pickle.load(file)
-file.close()
+def main():
+    '''Function Main'''
+    # open file
+    try:
+        file = open("users.dat", "rb")
+    except IOError:
+        print("File not found", file=sys.stderr)
+        sys.exit(1)
 
-print("Name".ljust(10), "Date of birth".rjust(20))
+    records = pickle.load(file)
+    file.close()
 
-for record in records:
-    print(record[0].ljust(10), record[1].rjust(20))
+    print("Name".ljust(10), "Date of birth".rjust(20))
 
+    for record in records:
+        print(record[0].ljust(10), record[1].rjust(20))
+
+
+main()

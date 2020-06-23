@@ -1,6 +1,6 @@
 '''
 How to program in Python - Chapter 12
-# Simple regular-expression example.
+Simple regular-expression example.
 '''
 
 import re
