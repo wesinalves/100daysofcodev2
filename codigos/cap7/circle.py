@@ -41,8 +41,8 @@ def main():
     circle = Circle(120, 89, 3)  # create Circle object
 
     # demonstrate object relationship with built-in function isinstance
-    print("\ncircle is a Point object:", isinstance(circle, Point))
     print("\npoint is a Circle object:", isinstance(point, Circle))
+    print("\ncircle is a Point object:", isinstance(circle, Point))
 
     # print Point and Circle objects
     print("\npoint members:\n\t", point.__dict__)
