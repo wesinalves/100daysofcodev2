@@ -1,30 +1,37 @@
-# Python Journey - Chapter 13
-# Opening and writing pickled object to file.
+'''
+How to program in Python - Chapter 13
+Opening and writing pickled object to file.
+'''
 
-import sys, pickle
+import sys
+import pickle
 
-# open file
-try:
-    file = open("users.dat", "wb")
-except IOError:
-    print("File not found", file = sys.stderr)
-    sys.exit(1)
-
-print("Enter the user name, name and date of birth.")
-print("Enter end-of-file to end input.")
-
-input_list = []
-
-while 1:
-
+def main():
+    '''Main Function'''
+    # open file
     try:
-        account_line = input("? ")
-    except EOFError:
-        break
-    else:
-        input_list.append(account_line.split())
+        file = open("users.dat", "wb")
+    except IOError:
+        print("File not found", file=sys.stderr)
+        sys.exit(1)
 
-pickle.dump(input_list, file)
+    print("Enter the user name, name and date of birth.")
+    print("Enter end-of-file to end input.")
 
-#file.close()
+    input_list = []
 
+    while 1:
+
+        try:
+            account_line = input("? ")
+        except EOFError:
+            break
+        else:
+            input_list.append(account_line.split())
+
+    pickle.dump(input_list, file)
+
+    # file.close()
+
+
+main()
