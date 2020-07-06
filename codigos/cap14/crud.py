@@ -1,10 +1,13 @@
-# Python Journey - Chapter 14
-# Create, read, update and delete records in database
+'''
+How to program in Python - Chapter 14
+Create, read, update and delete records in database
+'''
 
-import psycopg2
 from tkinter import *
 from tkinter.messagebox import *
 import Pmw
+import psycopg2
+
 
 class Film(Frame):
     """GUI Database Address Book Frame"""
@@ -13,23 +16,23 @@ class Film(Frame):
 
         Frame.__init__(self)
         Pmw.initialise()
-        self.pack(expand = YES, fill = BOTH)
+        self.pack(expand=YES, fill=BOTH)
         self.master.title("Films for rental.")
 
-        self.buttons = Pmw.ButtonBox(self, padx = 0)
-        self.buttons.grid(columns = 2)
-        self.buttons.add("Find", command = self.find_film)
-        self.buttons.add("Add", command = self.add_film)
-        self.buttons.add("Update", command = self.update_film)
-        self.buttons.add("Clear", command = self.clear_contents)
-        self.buttons.add("Help", command = self.help, width = 14)
+        self.buttons = Pmw.ButtonBox(self, padx=0)
+        self.buttons.grid(columns=2)
+        self.buttons.add("Find", command=self.find_film)
+        self.buttons.add("Add", command=self.add_film)
+        self.buttons.add("Update", command=self.update_film)
+        self.buttons.add("Clear", command=self.clear_contents)
+        self.buttons.add("Help", command=self.help, width=14)
         self.buttons.alignbuttons()
 
         # list of fields in an address record
-        fields = ["film_id", "title", "description", "release_year", 
-                    "language_id", "rental_duration", "rental_rate", "length",
-                    "replacement_cost", "rating", "last_update", "special_features", "fulltext"]
-        
+        fields = ["film_id", "title", "description", "release_year",
+                  "language_id", "rental_duration", "rental_rate", "length",
+                  "replacement_cost", "rating", "last_update", "special_features", "fulltext"]
+
         # dictionary with Entry components for values, keyed by
         # corresponding addresses table field names
         self.entries = {}
@@ -38,21 +41,21 @@ class Film(Frame):
 
         # create entries for each field
         for i in range(len(fields)):
-            label = Label(self, text = fields[i] + ":")
-            label.grid(row = i + 1, column = 0)
-            entry = Entry(self, name = fields[i].lower(), font = "Courier  12")
-            entry.grid(row = i + 1, column = 1, sticky = W+E+N+S, padx = 5)
-        
+            label = Label(self, text=fields[i] + ":")
+            label.grid(row=i + 1, column=0)
+            entry = Entry(self, name=fields[i].lower(), font="Courier  12")
+            entry.grid(row=i + 1, column=1, sticky=W+E+N+S, padx=5)
+
             # user cannot type in ID field
             if fields[i] == "film_id":
-                entry.config(state = DISABLED, textvariable = self.IDEntry, bg = "gray")
-            
+                entry.config(state=DISABLED,
+                             textvariable=self.IDEntry, bg="gray")
+
             # add entry field to dictionary
             key = fields[i].replace(" ", " ")
             #key = key.upper()
             self.entries[key] = entry
-        
-                
+
     def add_film(self):
         """Add film record to database"""
 
@@ -76,11 +79,12 @@ class Film(Frame):
                         self.entries["especial_features"].get(),
                         self.entries["fulltext"].get()
                     )
-            query = query[:-2] + ")" 
+            query = query[:-2] + ")"
 
             # open connection, retrieve cursor and execute query
             try:
-                conn = psycopg2.connect("dbname=dvdrental user=postgres password=root")
+                conn = psycopg2.connect(
+                    "dbname=dvdrental user=postgres password=root")
                 cursor = conn.cursor()
                 cursor.execute(query)
             except psycopg2.OperationalError as error:
@@ -92,7 +96,7 @@ class Film(Frame):
                 self.clear_contents()
         else:
             showwarning("Missing fields", "Please enter name")
-        
+
     def find_film(self):
         """Query database for address record and display results"""
 
@@ -101,10 +105,11 @@ class Film(Frame):
             query = "SELECT * FROM film " + \
                     "WHERE title = '" + \
                     self.entries["title"].get() + "'"
-            
+
             # open connection, retrieve cursor and execute query
             try:
-                conn = psycopg2.connect("dbname=dvdrental user=postgres password=root")
+                conn = psycopg2.connect(
+                    "dbname=dvdrental user=postgres password=root")
                 cursor = conn.cursor()
                 cursor.execute(query)
             except psycopg2.OperationalError as error:
@@ -120,19 +125,20 @@ class Film(Frame):
                 else:
                     self.clear_contents()
 
-                    #display results
+                    # display results
                     for i in range(len(fields)):
                         if fields[i][0] == "film_id":
                             self.IDEntry.set(str(results[0][i]))
                         else:
-                            self.entries[fields[i][0]].insert(INSERT, str(results[0][i]))
-                
+                            self.entries[fields[i][0]].insert(
+                                INSERT, str(results[0][i]))
+
                 cursor.close()
                 conn.close()
-        
+
         else:
-            showwarning( "Missing fields", "Please enter last name" )
-    
+            showwarning("Missing fields", "Please enter last name")
+
     def update_film(self):
         """Update address record in database"""
 
@@ -145,16 +151,16 @@ class Film(Frame):
             for key, value in entry_items:
 
                 if key != "film_id":
-                    print(" %s='%s'," % (key, value.get().replace("'","\'")))
-                    query += " %s='%s'," % (key, value.get().replace("'","\'"))
+                    print(" %s='%s'," % (key, value.get().replace("'", "\'")))
+                    query += " %s='%s'," % (key,
+                                            value.get().replace("'", "\'"))
 
-                
             query = query[:-1] + " WHERE film_id =" + self.IDEntry.get()
-            
 
             # open connection, retrieve cursor and execute query
             try:
-                conn = psycopg2.connect("dbname=dvdrental user=postgres password=root")
+                conn = psycopg2.connect(
+                    "dbname=dvdrental user=postgres password=root")
                 cursor = conn.cursor()
                 cursor.execute(query)
             except psycopg2.OperationalError as error:
@@ -162,24 +168,24 @@ class Film(Frame):
                 showerror("Error", error_message)
                 self.clear_contents()
             else:
-                showinfo( "database updated", "Database Updated." )
+                showinfo("database updated", "Database Updated.")
                 cursor.close()
                 conn.close()
-            
+
         else:
             showwarning("No ID specified", """
                 You may only update an existing record.
                 Use Find to locate the record,
                 then modify the information and press Update.""")
-    
+
     def clear_contents(self):
         """Clear GUI panel"""
 
         for entry in self.entries.values():
-            entry.delete(0,END)
-        
+            entry.delete(0, END)
+
         self.IDEntry.set(" ")
-    
+
     def help(self):
         "Display help message to user"
 
@@ -188,14 +194,11 @@ class Film(Frame):
             Click Update to update the information in a record.
             Click Clear to empty the Entry fields.\n""")
 
+
 def main():
+    '''Main Function'''
     Film().mainloop()
+
 
 if __name__ == "__main__":
     main()
-
-
-
-            
-                
-            
