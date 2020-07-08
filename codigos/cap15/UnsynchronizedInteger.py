@@ -1,5 +1,7 @@
-# Python Journey - Chapter 15
-# Unsynchronized Integer Class
+'''
+How to program in Python - Chapter 15
+Unsynchronized Integer Class
+'''
 
 import threading
 
@@ -24,3 +26,5 @@ class UnsynchronizedInteger(threading.Thread):
         print("%s retrieving sharedNumber value %d" % (threading.currentThread().getName(), temp))
 
         return temp
+
+

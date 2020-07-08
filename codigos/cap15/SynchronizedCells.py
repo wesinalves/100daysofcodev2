@@ -1,5 +1,7 @@
-# Python Journey - Chapter 15
-# Synchronized circular buffer of integer values
+'''
+How to program in Python - Chapter 15
+Synchronized circular buffer of integer values
+'''
 
 import threading
 

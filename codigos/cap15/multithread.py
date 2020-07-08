@@ -1,5 +1,7 @@
-# Python Journey - Chapter 15
-# Show multiple threads printing at different intervals
+'''
+How to program in Python - Chapter 15
+Show multiple threads printing at different intervals
+'''
 
 import threading
 import random
@@ -22,20 +24,23 @@ class PrintThread(threading.Thread):
         time.sleep(self.sleep_time)
         print(self.getName(), "done sleeping")
     
+def main():
+    '''Main Function'''
+    thread1 = PrintThread("thread1")
+    thread2 = PrintThread("thread2")
+    thread3 = PrintThread("thread3")
+    thread4 = PrintThread("thread4")
 
-thread1 = PrintThread("thread1")
-thread2 = PrintThread("thread2")
-thread3 = PrintThread("thread3")
-thread4 = PrintThread("thread4")
+    print("\nStarting threads")
 
-print("\nStarting threads")
+    thread1.start()
+    thread2.start()
+    thread3.start()
+    thread4.start()
 
-thread1.start()
-thread2.start()
-thread3.start()
-thread4.start()
+    print("Threads started\n")
 
-print("Threads started\n")
+main()
 
 
 

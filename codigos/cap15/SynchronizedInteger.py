@@ -1,5 +1,7 @@
-# Python Journey - Chapter 15
-# Synchronized access to an integer with condition variable
+'''
+How to program in Python - Chapter 15
+Synchronized access to an integer with condition variable
+'''
 
 import threading
 
