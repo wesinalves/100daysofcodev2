@@ -47,5 +47,5 @@ class SynchronizedInteger:
         self.thread_condition.notify()
         self.thread_condition.release()
 
-        return temp_number
         
+        return temp_number
