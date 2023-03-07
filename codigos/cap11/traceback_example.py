@@ -19,13 +19,16 @@ def function3():
     except Exception:
         print("Caught exception in function3. Reraising....\n")
         raise
+
 def main():
     '''Main Program'''
     try:
         function1()
-    except Exception as exception:
+    except Exception as e:
         print("Exception caught in main program.")
-        print("\nException arguments:", exception.args)
-        print("\nException message:", exception)    
+        print("\nException arguments:", e.args)
+        print("\nException message:", e)    
         traceback.print_exc()
-main()
+
+if __name__ == '__main__':
+    main()

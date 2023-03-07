@@ -24,6 +24,7 @@ def main():
 
     # else clause's suite executes if try suite raises no exceptions
     else:
-        print("{:.3f} / {:.3f} = {:.3f}".format(number1, number2, result))
+        print(f"{number1:.3f} / {number2:.3f} = {result:.3f}")
 
-main()
+if __name__ == '__main__':
+    main()

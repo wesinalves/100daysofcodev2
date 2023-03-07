@@ -39,4 +39,6 @@ def main():
     except Exception:
         print("Caught exception from raiseExceptionDoNotCatch")
 
-main()
+
+if __name__ == '__main__':
+    main()
