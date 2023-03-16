@@ -13,17 +13,19 @@ def main():
         try:
             r = random.randint(1, 5)
             # r is pseudorandomly 1, 2, 3, or 4
-            if r == 1:
-                print(int('um')) # Try to convert a non-integer
-            elif r == 2:
-                [][2] = 5
-            # Try to assign to a nonexistent index of the empty list
-            elif r == 3:
-                print({}[1]) # Try to use a nonexistent key to get an item from a dictionary
-            elif r == 4:
-                print(3/0) # Try to divide by zero
-            else:
-                print(x)
+            match r:
+                # r is pseudorandomly 1, 2, 3, or 4
+                case 1:
+                    print(int('one')) # Try to convert a non-integer
+                case 2:
+                    [][2] = 5
+                # Try to assign to a nonexistent index of the empty list
+                case 3:
+                    print({}[1]) # Try to use a nonexistent key to get an item from a dictionary
+                case 4:
+                    print(3/0) # Try to divide by zero
+                case _:
+                    print(x)
         except ValueError:
             print('Cannot convert integer')
         except IndexError:
