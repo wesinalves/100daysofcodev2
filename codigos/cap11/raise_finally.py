@@ -19,9 +19,14 @@ def raiseExceptionDoNotCatch():
     try:
         print("In raiseExceptionDoNotCatch()")
         raise Exception
+        return
     # finally executes because corresponding try executed
     finally:
         print("Finally executed in raiseExceptionDoNotCatch")
+        return
+        
+        
+        
     
     print("Will never reach this point")
 
@@ -38,6 +43,7 @@ def main():
 
     except Exception:
         print("Caught exception from raiseExceptionDoNotCatch")
+               
 
 
 if __name__ == '__main__':

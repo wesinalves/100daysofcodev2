@@ -26,5 +26,10 @@ def main():
     else:
         print(f"{number1:.3f} / {number2:.3f} = {result:.3f}")
 
+    # finally clause will be excuted always
+    finally:
+        print('Good job. Task was processed')
+    
+
 if __name__ == '__main__':
     main()

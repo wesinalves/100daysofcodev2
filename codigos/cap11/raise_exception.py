@@ -1,4 +1,4 @@
-def non_neg_int(n):
+def non_negative_integer(n):
     """ Converts argument n into a nonnegative integer, if possible.
     Raises a ValueError if the argument is not convertible
     to a nonnegative integer. """
@@ -10,9 +10,11 @@ def non_neg_int(n):
 if __name__ == "__main__":
     while True:
         try:
-            x = non_neg_int(input('Please enter a nonnegative integer:'))
-            if x == 999: # Secret number exits loop
+            x = non_negative_integer(
+                input('Please enter a nonnegative integer:')
+            )
+            if x == 999:
                 break
-            print('You entered', x)
         except ValueError:
-            print('The value you entered is not acceptable')
+            print('exception raised!')
+        

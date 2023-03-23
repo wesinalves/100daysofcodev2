@@ -8,8 +8,7 @@ class NegativeNumberError(ArithmeticError):
     pass
 
 def square_root(number):
-    """Computes square root of number. Raises NegativeNumberError
-    if number is less than 0."""
+    """Computes square root of number."""
 
     if number < 0:
         raise NegativeNumberError("Square root of negative number not permitted")
@@ -25,8 +24,8 @@ def main():
             print(square_root(user_value))
         except ValueError:
             print("The entered value is not a number")
-        except NegativeNumberError as exception:
-            print(exception)
+        except NegativeNumberError as e:
+            print(e)
         else:
             break
 

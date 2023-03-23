@@ -15,7 +15,7 @@ def function2():
 def function3():
     '''raise exception, catch exception, reraise exception'''
     try:
-        raise Exception("An exception has occurred")
+        raise Exception("An exception has occurred", "second argument")
     except Exception:
         print("Caught exception in function3. Reraising....\n")
         raise
@@ -25,10 +25,10 @@ def main():
     try:
         function1()
     except Exception as e:
+        traceback.print_exc()
         print("Exception caught in main program.")
         print("\nException arguments:", e.args)
         print("\nException message:", e)    
-        traceback.print_exc()
 
 if __name__ == '__main__':
     main()

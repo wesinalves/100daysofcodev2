@@ -19,7 +19,7 @@ def main():
                     print(3/0) # Try to divide by zero
                 case _:
                     print(x)
-        except ValueError as e:
+        except (ValueError, KeyError) as e:
             print('Cannot convert integer', type(e), e)
         except IndexError as e:
             print('List index is out of range', type(e), e)
