@@ -1,5 +1,5 @@
 # Python Journey - Chapter 11
-# Demonstrating exception arguments and stack unwinding.
+# Demonstrating a programmer-defined exception class.
 
 import math
 
