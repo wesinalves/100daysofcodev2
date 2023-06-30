@@ -3,7 +3,7 @@
 # Reading files.
 """
 
-file = open('myfile.txt', 'r')
+file = open('myfile.txt', 'rb')
 
 for line in file:
     print(line, end='')

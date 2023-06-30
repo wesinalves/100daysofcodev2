@@ -2,8 +2,7 @@
 # Journey Python - Chapter 40
 # Writing Files.
 """
-
-file = open('myfile.txt', 'w', encoding="utf-8")
+file = open('myfile.txt', 'w')
 
 content = file.write('Hello World\n')
 print(content)
