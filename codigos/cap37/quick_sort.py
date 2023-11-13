@@ -13,7 +13,7 @@ def partition(vector, start, end):
 
     for i in range(start, end):
         if vector[i] <= pivot:
-            vector[i], vector[index] = vector[index], vector[i]
+            vector[index], vector[i] = vector[i], vector[index]
             index += 1
     
     vector[index], vector[end] = vector[end], vector[index]
