@@ -1,5 +1,3 @@
-import sys
-
 class Node:
     def __init__(self, key, parent=None, left=None, right=None, color='RED'):
         self.key = key
