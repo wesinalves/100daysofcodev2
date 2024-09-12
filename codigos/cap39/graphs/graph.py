@@ -19,9 +19,6 @@ class Graph:
         self.time = 0
     
     def add_edges(self, u: Vertex, v: Vertex, non_direct = True):
-        #vertex_u = Vertex(u, 'white', None)
-        #vertex_v = Vertex(v, 'white', None)
-        # insert u if not in list
         uids = [x.id for x in self.vertex_list[u.id]]
         if u.id not in uids:
             self.vertex_list[u.id].append(u)
@@ -54,67 +51,60 @@ class Graph:
 
     def dfs_visit(self, u: Vertex):
         self.time += 1
-        #u.d = self.time
-        self.vertex_list[u.id][0].d = self.time
-        self.vertex_list[u.id][0].color = 'gray'
+        u.d = self.time
+        u.color = 'gray'
         adjs = self.get_neighbor(u)
         for v in adjs:
             if v.color == 'white':
-                self.vertex_list[v.id][0].parent = u
+                v.parent = u
                 self.dfs_visit(v)
-        self.vertex_list[u.id][0].color = 'black'
+        u.color = 'black'
         self.time += 1
-        self.vertex_list[u.id][0].f = self.time
+        u.f = self.time
 
-if __name__ == "__main__":
-    # G = Graph(16, 15)
-    # G.add_edges(0, 4)
-    # G.add_edges(2, 3)
-    # G.add_edges(6, 2)
-    # G.add_edges(8, 9)
-    # G.add_edges(8, 12)
-    # G.add_edges(10, 9)
-    # G.add_edges(14, 15) 
-    # G.add_edges(14, 10)
-    # G.add_edges(6, 5)
-    # G.add_edges(10, 11)
-    # G.add_edges(11, 7)
-    # G.add_edges(4, 8)
-    # G.add_edges(0, 1)
-    # G.add_edges(1, 2)
-    # G.add_edges(12, 13)
+#if __name__ == "__main__":
+    #for j in range (G.num_edges):
+    # G.add_edges(vertex_array[0], vertex_array[1], False)
+    # G.add_edges(vertex_array[0], vertex_array[3], False)
+    # G.add_edges(vertex_array[1], vertex_array[4], False)
+    # G.add_edges(vertex_array[2], vertex_array[4], False)
+    # G.add_edges(vertex_array[2], vertex_array[5], False)
+    # G.add_edges(vertex_array[3], vertex_array[1], False)
+    # G.add_edges(vertex_array[4], vertex_array[3], False)
+    # G.add_edges(vertex_array[5], vertex_array[5], False)
 
-    G = Graph(6, 8)
-    vertex0 = Vertex(0, 'white', None)
-    vertex1 = Vertex(1, 'white', None)
-    vertex2 = Vertex(2, 'white', None)
-    vertex3 = Vertex(3, 'white', None)
-    vertex4 = Vertex(4, 'white', None)
-    vertex5 = Vertex(5, 'white', None)
+    # G.add_edges(vertex_array[0], vertex_array[4])
+    # G.add_edges(vertex_array[2], vertex_array[3])
+    # G.add_edges(vertex_array[6], vertex_array[2])
+    # G.add_edges(vertex_array[8], vertex_array[9])
+    # G.add_edges(vertex_array[10], vertex_array[9])
+    # G.add_edges(vertex_array[8], vertex_array[12])
+    # G.add_edges(vertex_array[14], vertex_array[15]) 
+    # G.add_edges(vertex_array[14], vertex_array[10])
+    # G.add_edges(vertex_array[6], vertex_array[5])
+    # G.add_edges(vertex_array[10], vertex_array[11])
+    # G.add_edges(vertex_array[11], vertex_array[7])
+    # G.add_edges(vertex_array[4], vertex_array[8])
+    # G.add_edges(vertex_array[0], vertex_array[1])
+    # G.add_edges(vertex_array[1], vertex_array[2])
+    # G.add_edges(vertex_array[12], vertex_array[13])
 
-    G.add_edges(vertex0, vertex1, False)
-    G.add_edges(vertex0, vertex3, False)
-    G.add_edges(vertex1, vertex4, False)
-    G.add_edges(vertex2, vertex4, False)
-    G.add_edges(vertex2, vertex5, False)
-    G.add_edges(vertex3, vertex1, False)
-    G.add_edges(vertex4, vertex3, False)
-    G.add_edges(vertex5, vertex5, False)
+    # G.add_edges(vertex_array[1], vertex_array[2])
+    # G.add_edges(vertex_array[1], vertex_array[4])
+    # G.add_edges(vertex_array[4], vertex_array[7])
+    # G.add_edges(vertex_array[7], vertex_array[8])
+    # G.add_edges(vertex_array[4], vertex_array[1])
+    # G.add_edges(vertex_array[4], vertex_array[3])
 
-
-    G.dfs_from_source(0)
+    #G.dfs_from_source(s)
     #G.dfs()
 
-    print(G.time)
-    print(G.vertex_list[0][0].d)
-    print(G.vertex_list[0][0].f)
-    print(G.vertex_list[0][0].color)
+    #print(G.time - 2)
+    #print(G.vertex_list[1][0].d)
+    #print(G.vertex_list[1][0].f)
+    #print(G.vertex_list[1][0].color)
 
     # for v in range(G.num_vertex):
     #     for u in G.vertex_list[v]:
     #         print(f'{u.id} -> ', end='\t')
     #     print()
-
-
-
-    
