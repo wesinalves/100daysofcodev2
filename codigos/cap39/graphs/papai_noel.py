@@ -3,10 +3,13 @@ from queue import PriorityQueue
 def prim(graph: list, size: int):
     res = 0
     visited = [False] * size
+    C = [float('inf')] * size # min cost of v
     Q = PriorityQueue()
     visited[0] = True
     for neighbor, weigth in graph[0]:
         Q.put((weigth, neighbor))
+    
+    C[0] = 0
     
     while not Q.empty():
         weigth, u = Q.get()
@@ -14,13 +17,13 @@ def prim(graph: list, size: int):
             visited[u] = True
             res += weigth
             for neighbor, w in graph[u]:
-                if not visited[neighbor]:
+                if (not visited[neighbor]) and (w < C[neighbor]):
                     Q.put((w, neighbor))
+                    C[neighbor] = w
     return res
 
 def main():
     G = []
-    V = []
     while True:
         M,N = map(int, input().strip().split())
         
