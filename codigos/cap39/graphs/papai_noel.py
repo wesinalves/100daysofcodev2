@@ -3,19 +3,19 @@ from queue import PriorityQueue
 def prim(graph: list, size: int):
     res = 0
     visited = [False] * size
-    C = [float('inf')] * size # min cost of v
+    C = [float('inf')] * size
     Q = PriorityQueue()
     visited[0] = True
-    for neighbor, weigth in graph[0]:
-        Q.put((weigth, neighbor))
+    for neighbor, weight in graph[0]:
+        Q.put((weight, neighbor))
     
     C[0] = 0
-    
+
     while not Q.empty():
-        weigth, u = Q.get()
+        weight, u = Q.get()
         if not visited[u]:
             visited[u] = True
-            res += weigth
+            res += weight
             for neighbor, w in graph[u]:
                 if (not visited[neighbor]) and (w < C[neighbor]):
                     Q.put((w, neighbor))
@@ -23,22 +23,20 @@ def prim(graph: list, size: int):
     return res
 
 def main():
-    G = []
     while True:
         M,N = map(int, input().strip().split())
-        
+
         if M == 0 and N == 0:
             break
-        
-        # implementar o grafo G
-        G = [[] for _ in range(M)]
+
+        # criar o grafo G
+        G = [[] for _ in range[M]]
         for n in range(N):
-            u,v,d = map(int, input().strip().split())
+            u, v, d = map(int, input().strip().split())
 
             G[u].append((v, d))
             G[v].append((u, d))
-        
-        # invocar o algoritmo de prim
+
         result = prim(G, M)
         print(result)
 
