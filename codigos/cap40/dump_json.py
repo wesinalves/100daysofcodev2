@@ -8,7 +8,7 @@ data = {
     'Nome': 'açucar',
     'Marca': 'união',
     'Valor': 4.5,
-    'Validade': '25/03/2024'
+    'Validade': {'dia': 3, 'mes': 4, 'ano': 2022}
 }
 
 with open('data.json', 'w') as file:
@@ -18,4 +18,7 @@ with open('data.json', 'r') as file:
     data = json.load(file)
 
 for key, item in data.items():
-    print(type(item))
+    if key == 'Validade':
+        print(f"Data: {item['dia']}/{item['mes']}/{item['ano']}")
+    else:
+        print(key, item)

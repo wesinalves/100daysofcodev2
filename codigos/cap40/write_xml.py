@@ -21,4 +21,4 @@ for key, value in product.items():
     child.append(node)
 
 root.append(child)
-tree.write('produtos.xml')
+tree.write('produtos2.xml')

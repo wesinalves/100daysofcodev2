@@ -4,10 +4,11 @@
 """
 
 import gzip
-content = b'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+content = b'Lorem ipsum dolor sit amet, consectetur adipiscing elit\n.'
 
 with gzip.open('compress_data.gz', 'wb') as file:
-    file.write(content)
+    for _ in range(5):
+        file.write(content)
 
 with open('compress_data.gz', 'rb') as file:
     print(file.read())

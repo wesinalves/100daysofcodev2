@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<produtos xmlns:special="especial" 
+        xmlns="normal">
+    <special:produto id="1">
+        <Nome>leite</Nome>
+        <Marca>El Nino</Marca>
+        <Valor>19.9</Valor>
+        <Validade>29/05/2025</Validade>
+    </special:produto>
+    <produto id="2">
+        <Nome>feijão</Nome>
+        <Marca>kigostoso</Marca>
+        <Valor>8.7</Valor>
+        <Validade>25/03/2024</Validade>
+    </produto>
+    <special:produto id="3">
+        <Nome>arroz</Nome>
+        <Marca>tio sebastião</Marca>
+        <Valor>5.5</Valor>
+        <Validade>29/07/2023</Validade>
+    </special:produto>
+    <produto id="4">
+        <Nome>café</Nome>
+        <Marca>copoestrela</Marca>
+        <Valor>8.4</Valor>
+        <Validade>12/07/2025</Validade>
+    </produto>
+</produtos>
