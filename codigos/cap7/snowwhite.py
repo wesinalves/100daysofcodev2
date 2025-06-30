@@ -3,15 +3,12 @@ class Personagem:
         self.nome = nome
     
     def falar(self):
-        print(f"Meu nome é {self.nome}")
-
-class BrancaDeNeve(Personagem):
-    def __init__(self, nome, sobrenome):
-        super().__init__(nome)
-        self.sobrenome = sobrenome
+        print(f"Oi, Meu nome é {self.nome}")
+        input()
     
     def cantar(self):
-        print(f"Aprenda uma canção com a {self.nome} {self.sobrenome}")
+        print(f"{self.nome} Cantando uma canção na floresta!")
+        input()
 
 
 class Anao(Personagem):
@@ -20,26 +17,14 @@ class Anao(Personagem):
         self.altura = altura
     
     def cantar(self):
-        print("Eu vou, eu vou, pra casa agora eu vou...")
-    
-    def trabalhar(self):
-        print(f"{self.nome} trabalhando...")
-
-
-
-class Bruxa(Personagem):
-    def __init__(self, nome, sobrenome):
-        super().__init__(nome)
-        self.sobrenome = sobrenome
-
-    def cantar(self):
-        print(f"Quem é mais bela do que {self.nome} {self.sobrenome}")
+        print(f"({self.nome}) Eu vou, eu vou, pra casa agora eu vou...")
+        input()
 
 
 if __name__ == "__main__":
     # criando os personagens
-    branca_de_neve = BrancaDeNeve("Branca", "de Neve")
-    bruxa = Bruxa("Bruxa", "Má")
+    branca_de_neve = Personagem("Branca de Neve")
+    bruxa = Personagem("Bruxa Má")
     zangado = Anao("Zangado", 1.3)
     dunga = Anao("Dunga", 1.4)
     mestre = Anao("Mestre", 1.5)
@@ -48,18 +33,13 @@ if __name__ == "__main__":
     dengoso = Anao("Dengoso", 1.5)
     feliz = Anao("Feliz", 1.4)
 
-    personagens = [branca_de_neve, bruxa]
-    anoes = [zangado, dunga, mestre, soneca, atchim, dengoso, feliz]
+    personagens = [branca_de_neve, bruxa, zangado, dunga]
+    anoes = [mestre, soneca, atchim, dengoso, feliz]
 
     # usando mecanismo de herança (reutilização de código)
     for p in personagens:
-        p.falar()
-
-    # usando herança a partir da classe filha
-    for p in personagens:
         p.cantar()
 
-    feliz.cantar()
 
-    for a in anoes:
-        a.trabalhar()
+    # for a in anoes:
+    #     a.cantar()
