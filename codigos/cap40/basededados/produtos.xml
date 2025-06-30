@@ -1,0 +1,32 @@
+<produtos>
+    <produto id="1">
+        <Nome>leite</Nome>
+        <Marca>El Nino</Marca>
+        <Valor>19.9</Valor>
+        <Validade>29/05/2025</Validade>
+    </produto>
+    <produto id="2">
+        <Nome>feij&#227;o</Nome>
+        <Marca>kigostoso</Marca>
+        <Valor>8.7</Valor>
+        <Validade>25/03/2024</Validade>
+    </produto>
+    <produto id="3">
+        <Nome>arroz</Nome>
+        <Marca>tio sebasti&#227;o</Marca>
+        <Valor>5.5</Valor>
+        <Validade>29/07/2023</Validade>
+    </produto>
+    <produto id="4">
+        <Nome>caf&#233;</Nome>
+        <Marca>copoestrela</Marca>
+        <Valor>8.4</Valor>
+        <Validade>12/07/2025</Validade>
+    </produto>
+    <produto id="5">
+        <Nome>leite</Nome>
+        <Marca>itamb&#233;</Marca>
+        <Valor>15.9</Valor>
+        <Validade>29/05/2025</Validade>
+    </produto>
+</produtos>

@@ -7,14 +7,18 @@ zip = zipfile.ZipFile('files.zip', 'w')
 zip.mkdir('basededados')
 
 files = [
-    'relatoriogeral.xml',
-    'basededados/equipamentos.csv',
-    'basededados/funcionarios.csv',
-    'basededados/produtos.csv'
+    'data.json',
+    'myfile.bin',
+    'compress_data.txt',
+    'produtos.xml',
+    'produtos2.xml'
 ]
 
 for file in files:
-    zip.write(file, compress_type=zipfile.ZIP_BZIP2)
+    zip.write(file, f'basededados/{file}', compress_type=zipfile.ZIP_BZIP2, )
+
+print('Arquivos compactados com sucesso!')
+
+zip.extractall('arquivos')
 
 zip.close()
-print('Arquivos compactados com sucesso!')

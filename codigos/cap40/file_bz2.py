@@ -13,5 +13,5 @@ out = b""
 for chunk in gen_data():
     out = out + comp.compress(chunk)
 
-out = out + comp.flush()
+#out = out + comp.flush()
 print(out)

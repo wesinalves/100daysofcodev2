@@ -6,9 +6,9 @@ from shutil import copy
 import os
 
 # set source and destination paths
-source_dir = os.path.expanduser('~/Downloads/test')
+source_dir = os.path.expanduser('~/Downloads')
 images_folder = os.path.expanduser('~/Picures')
-videos_folder = os.path.expanduser('~/Videos')
+videos_folder = os.path.expanduser('~/Movies')
 documents_folder = os.path.expanduser('~/Documents')
 musics_folder = os.path.expanduser('~/Music')
 
