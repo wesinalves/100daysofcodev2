@@ -4,29 +4,32 @@ def dijkstra(graph: list, size: int, start: int):
     D = [float('inf')] * size
     P = [None] * size
     visited = [False] * size
+
     Q = PriorityQueue()
-    Q.put((0,start))
+    Q.put((0, start))
     D[start] = 0
 
-    menor = float('inf')
-    maior = -float('inf')
+    lower = float('inf')
+    higher = -float('inf')
+
     while not Q.empty():
         weight, u = Q.get()
         if not visited[u]:
             visited[u] = True
             if u != start:
-                if weight < menor:
-                    menor = weight
-                if weight > maior:
-                    maior = weight
+                if weight < lower:
+                    lower = weight
+                if weight > higher:
+                    higher = weight
+                
             for neighbor, w in graph[u]:
                 # relax vertex
-                if ((w + D[u]) < D[neighbor]):
+                if ((w + D[u] < D[neighbor])):
                     Q.put((w + D[u], neighbor))
                     D[neighbor] = w + D[u]
                     P[neighbor] = u
-
-    return maior - menor
+    
+    return higher - lower
 
 def main():
     
